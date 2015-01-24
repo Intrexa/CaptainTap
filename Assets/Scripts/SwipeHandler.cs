@@ -10,7 +10,19 @@ public class SwipeHandler : MonoBehaviour {
 	public float swipeThreshold = 0.75f;
 	public bool debugLog = true;
 
-	private Vector2 panStart, panEnd;
+	public delegate void UpSwiped();
+    public event UpSwiped UpSwipeAction; 
+
+    public delegate void DownSwiped();
+    public event DownSwiped DownSwipeAction; 
+
+    public delegate void LeftSwiped();
+    public event LeftSwiped LeftSwipeAction; 
+
+    public delegate void RightSwiped();
+    public event RightSwiped RightSwipeAction; 
+
+	private Vector2 panStart, panEnd;	
 	private Vector2 panDelta = Vector2.zero;
 
 	void OnEnable()
@@ -71,12 +83,16 @@ public class SwipeHandler : MonoBehaviour {
 		switch (dir)
 		{
 			case Direction.up: 		print("Swiped Up");
+									UpSwipeAction();
 									break;
 			case Direction.down: 	print("Swiped Down");
+									DownSwipeAction();
 									break;
 			case Direction.left: 	print("Swiped Left");
+									LeftSwipeAction();
 									break;
 			case Direction.right: 	print("Swiped Right");
+									RightSwipeAction();
 									break;
 		}
 	}
@@ -84,6 +100,6 @@ public class SwipeHandler : MonoBehaviour {
 	private void print(string message)
 	{
 		if(debugLog)
-			print(message);
+			Debug.Log(message);
 	}
 }

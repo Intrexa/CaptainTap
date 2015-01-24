@@ -8,6 +8,9 @@ public class TapHandler : MonoBehaviour {
 
 	public bool debugLog = true;
 
+	public delegate void Tapped();
+    public event Tapped TapAction; 
+
 	void OnEnable()
 	{
 	    // subscribe to gesture's Tapped event
@@ -25,11 +28,13 @@ public class TapHandler : MonoBehaviour {
 	{	
 		if(debugLog)
 			print("TAPPED: " + gameObject.name);
-	}
 
-		private void print(string message)
+		TapAction();
+	}
+	
+	private void print(string message)
 	{
 		if(debugLog)
-			print(message);
+			Debug.Log(message);
 	}
 }
