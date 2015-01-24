@@ -2,7 +2,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class Minigame : MonoBehaviour {
+public class MinigameOLD : MonoBehaviour {
 
 	public int quad;
 	public float width, height;

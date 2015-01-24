@@ -3,6 +3,9 @@ using System.Collections;
 
 public class Minigame : MonoBehaviour {
 
+	public int quad;
+	public float width, height;
+
 	public Transform foreground, background;
 	private int[] rhythm;
 	private AsteroidController newAsteroid;
@@ -25,13 +28,13 @@ public class Minigame : MonoBehaviour {
 			if (rhythm[rhythmIndex] == 1) {
 				Vector3 spawnPosition = transform.position + spawnOffset;
 				spawnPosition.z = spawnPosition.z + rhythmIndex * (spawnPosition.z - endPosition);
-				Spawn(spawnPosition, transform.position.z + endPosition, rhythmIndex);
+				//Spawn(spawnPosition, transform.position.z + endPosition, rhythmIndex);
 			}
 		}
-
-		//Mmove foreground and background
+		Debug.Log("test");
+		//Move foreground and background
 		if (foreground)
-						foreground.position = new Vector3(foreground.position.x,foreground.position.y,Camera.main.nearClipPlane);
+			foreground.position = new Vector3(foreground.position.x,foreground.position.y,Camera.main.nearClipPlane);
 
 		if (background)
 			background.position = new Vector3(background.position.x,background.position.y,Camera.main.farClipPlane-100);

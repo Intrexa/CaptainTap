@@ -39,8 +39,9 @@ public class GamePanel : MonoBehaviour {
 	{	
 		//GameObject newGame = //Score.GetNewMiniGame();
 		GameObject newGO = Instantiate(tempMiniGame, miniGamePositions[quad],tempMiniGame.transform.rotation) as GameObject;
-		newGO.renderer.material.color = new Color(Random.value,Random.value,Random.value);
+		//newGO.renderer.material.color = new Color(Random.value,Random.value,Random.value);
 		newGO.transform.parent = transform;
+		newGO.transform.localScale = new Vector3(0.5f,0.5f,0.5f);
 		minigameArray[quad] = newGO.GetComponent<Minigame>() as Minigame;
 		minigameArray[quad].quad = quad;
 		minigameArray[quad].width = Screen.width*0.5f;
