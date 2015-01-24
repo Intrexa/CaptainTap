@@ -1,0 +1,40 @@
+{
+	"folders":
+	[
+		{
+			"path": "/C/Users/Ben/Documents/Rhythm Commander"
+		},
+		{
+			"file_exclude_patterns":
+			[
+				"*.meta",
+				"*.prefab",
+				"*.unity",
+				"*.mat",
+				"*.tags*"
+			],
+			"folder_exclude_patterns":
+			[
+				"Materials",
+				"Blender Objects"
+			],
+			"path": "Assets"
+		}
+	],
+	"settings":
+	{
+		"project-specific":
+		{
+			"completesharp_assemblies":
+			[
+				"C:\\Program Files (x86)\\Unity\\Editor\\Data\\Managed\\UnityEngine.dll",
+				"C:\\Program Files (x86)\\Unity\\Editor\\Data\\Managed\\UnityEditor.dll",
+				"${project_path:Library}\\ScriptAssemblies\\Assembly-CSharp.dll",
+				"${project_path:Library}\\ScriptAssemblies\\Assembly-CSharp-Editor.dll",
+				"${project_path:Library}\\ScriptAssemblies\\Assembly-UnityScript-Editor.dll",
+				"${project_path:Library}\\ScriptAssemblies\\Assembly-CSharp-firstpass.dll",
+				"${project_path:Assets}\\TouchScript\\Plugins\\TouchScript.dll"
+			]
+		}
+	}
+}

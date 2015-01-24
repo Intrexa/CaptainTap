@@ -1,0 +1,1033 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"pan",
+				"panStart"
+			],
+			[
+				"tr",
+				"transform"
+			],
+			[
+				"pot",
+				"portalCam"
+			],
+			[
+				"port",
+				"portalCam"
+			],
+			[
+				"de",
+				"Destination"
+			],
+			[
+				"M",
+				"M_Camera_Tr"
+			],
+			[
+				"m",
+				"m_ClipPlaneOffset"
+			],
+			[
+				"P",
+				"PortalCam"
+			],
+			[
+				"nea",
+				"nearPlane"
+			],
+			[
+				"ver",
+				"viewTransform"
+			],
+			[
+				"ref",
+				"reflection"
+			],
+			[
+				"Game",
+				"GameObject"
+			],
+			[
+				"rota",
+				"rotation	Quaternion"
+			],
+			[
+				"vew",
+				"viewTransform"
+			],
+			[
+				"po",
+				"position	Vector3"
+			],
+			[
+				"rot",
+				"RotateAround(Vector3, Single)	Void"
+			],
+			[
+				"Get",
+				"GetComponent<T>()	T"
+			],
+			[
+				"t",
+				"tag	String"
+			],
+			[
+				"old",
+				"oldRot"
+			],
+			[
+				"Id",
+				"identity"
+			],
+			[
+				"Res",
+				"ResetWorldToCameraMatrix()	Void"
+			],
+			[
+				"D",
+				"DrawLine(Vector3, Vector3)	Void"
+			],
+			[
+				"View",
+				"viewTransform"
+			],
+			[
+				"new",
+				"newpos"
+			],
+			[
+				"i",
+				"identity	Matrix4x4"
+			],
+			[
+				"max",
+				"Matrix4x4"
+			],
+			[
+				"ca",
+				"Camera"
+			],
+			[
+				"ro",
+				"rotation	Quaternion"
+			],
+			[
+				"ge",
+				"GetMouseButtonDown(Int32)	Boolean"
+			],
+			[
+				"Alt",
+				"LeftAlt	KeyCode"
+			],
+			[
+				"Vie",
+				"viewTransform"
+			],
+			[
+				"view",
+				"viewTransform"
+			],
+			[
+				"loc",
+				"localToWorldMatrix	Matrix4x4"
+			],
+			[
+				"Line",
+				"LineIntersection"
+			],
+			[
+				"Snap",
+				"SnapToEdge"
+			],
+			[
+				"in",
+				"inPoint"
+			],
+			[
+				"out",
+				"outPoint"
+			],
+			[
+				"Mes",
+				"MeshID"
+			],
+			[
+				"get",
+				"getCoordsV3()	Vector3"
+			],
+			[
+				"Vec",
+				"Vector3"
+			],
+			[
+				"ha",
+				"handle1"
+			],
+			[
+				"hand",
+				"handlePos1"
+			],
+			[
+				"ged",
+				"getCoordsV3()	Vector3"
+			],
+			[
+				"Lin",
+				"LineIntersection"
+			],
+			[
+				"handle",
+				"handlePos1"
+			],
+			[
+				"poi",
+				"point2"
+			],
+			[
+				"L",
+				"LineIntersection"
+			],
+			[
+				"ini",
+				"infiniteLine"
+			],
+			[
+				"han",
+				"handlePos1"
+			],
+			[
+				"sq",
+				"square"
+			],
+			[
+				"s",
+				"SqrMagnitude(Vector3)	Single"
+			],
+			[
+				"cen",
+				"center50"
+			],
+			[
+				"an",
+				"angles"
+			],
+			[
+				"handleP",
+				"handlePrefab"
+			],
+			[
+				"I",
+				"Instantiate"
+			],
+			[
+				"en",
+				"bEnum"
+			],
+			[
+				"Cr",
+				"CREATING"
+			],
+			[
+				"C",
+				"CreatingEnd	STATES"
+			],
+			[
+				"cr",
+				"Creating	STATES"
+			],
+			[
+				"St",
+				"state"
+			],
+			[
+				"state",
+				"stateRect"
+			],
+			[
+				"st",
+				"stateLabel"
+			],
+			[
+				"pa",
+				"parent"
+			],
+			[
+				"Poi",
+				"Point"
+			],
+			[
+				"KE",
+				"KeyValuePair"
+			],
+			[
+				"ids",
+				"idsList"
+			],
+			[
+				"S",
+				"SerializeField"
+			],
+			[
+				"upda",
+				"updateMesh"
+			],
+			[
+				"hull",
+				"hullCornerType"
+			],
+			[
+				"ve",
+				"Vector2"
+			],
+			[
+				"Vecto",
+				"Vector2"
+			],
+			[
+				"snap",
+				"snapPos"
+			],
+			[
+				"snapp",
+				"snappedY"
+			],
+			[
+				"sna",
+				"snapPos"
+			],
+			[
+				"cl",
+				"closestSnap"
+			],
+			[
+				"jt",
+				"jtRound	JoinType"
+			],
+			[
+				"bl",
+				"blue	Color"
+			],
+			[
+				"v",
+				"Vertices	ContourVertex[]"
+			],
+			[
+				"path",
+				"paths"
+			],
+			[
+				"e",
+				"Execute(List<List<IntPoint>>, Double)	Void"
+			],
+			[
+				"In",
+				"IntPoint"
+			],
+			[
+				"Cl",
+				"ClipperOffset"
+			],
+			[
+				"for",
+				"for	For"
+			],
+			[
+				"gam",
+				"gameObject"
+			],
+			[
+				"ac",
+				"activeGameObject	GameObject"
+			],
+			[
+				"crea",
+				"CreatingEnd	STATES"
+			],
+			[
+				"ad",
+				"AddPoint(Single, Single)	Point"
+			],
+			[
+				"GetCoo",
+				"getCoordsV3()	Vector3"
+			],
+			[
+				"Eul",
+				"Euler(Single, Single, Single)	Quaternion"
+			],
+			[
+				"d",
+				"Distance(Vector3, Vector3)	Single"
+			],
+			[
+				"V3",
+				"Vector3"
+			],
+			[
+				"sn",
+				"snapAmount"
+			],
+			[
+				"re",
+				"red	Color"
+			],
+			[
+				"p",
+				"position	Vector3"
+			],
+			[
+				"snapA",
+				"snapAngle"
+			],
+			[
+				"snapa",
+				"snapAngle"
+			],
+			[
+				"lo",
+				"localPosition	Vector3"
+			],
+			[
+				"ret",
+				"returnVec"
+			],
+			[
+				"linePoi",
+				"linePoint2"
+			],
+			[
+				"Near",
+				"NearestPointOnLine"
+			],
+			[
+				"su",
+				"subEdge"
+			],
+			[
+				"sub",
+				"sub"
+			],
+			[
+				"mesh",
+				"meshid"
+			],
+			[
+				"Ver",
+				"vertices2D"
+			],
+			[
+				"neat",
+				"NearestPointOnLine"
+			],
+			[
+				"Key",
+				"KeyValuePair"
+			],
+			[
+				"Point",
+				"Points"
+			],
+			[
+				"LeftC",
+				"LeftControl	KeyCode"
+			],
+			[
+				"mo",
+				"mousePosition	Vector3"
+			],
+			[
+				"PE",
+				"PE3"
+			],
+			[
+				"Element",
+				"ElementCount	Int32"
+			],
+			[
+				"pare",
+				"parentMesh"
+			],
+			[
+				"mes",
+				"meshManager"
+			],
+			[
+				"MM",
+				"meshManager	MeshManager"
+			],
+			[
+				"subMesh",
+				"subMeshHoles"
+			],
+			[
+				"Poly",
+				"PolyEditor"
+			],
+			[
+				"Co",
+				"ContourVertex	class"
+			],
+			[
+				"Li",
+				"LibTessDotNet"
+			],
+			[
+				"vertic",
+				"vertices2D"
+			],
+			[
+				"to",
+				"toProcess"
+			],
+			[
+				"newP",
+				"newPoint"
+			],
+			[
+				"pr",
+				"processedMeshIDs"
+			],
+			[
+				"point",
+				"point2"
+			],
+			[
+				"remo",
+				"RemovePoint"
+			],
+			[
+				"Inse",
+				"InsertPoint"
+			],
+			[
+				"Add",
+				"AddPoint"
+			],
+			[
+				"Po",
+				"Point"
+			],
+			[
+				"me",
+				"meshID"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"contents": "using System;\nusing UnityEngine;\nusing System.Collections;\nusing TouchScript.Hit;\nusing TouchScript.Gestures;\nusing TouchScript.Gestures.Simple;\n\npublic enum Direction {right, up, left, down}\n\npublic class BoxTap : MonoBehaviour {\n\n	private Vector2 panStart;\n	private Vector2 panDelta = Vector2.zero;\n\n	// Use this for initialization\n	void Start () {\n	\n	}\n	\n	// Update is called once per frame\n	void Update () {\n	\n	}\n\n	void OnEnable()\n	{\n	    // subscribe to gesture's Tapped event\n	    GetComponent<TapGesture>().Tapped += tappedHandler;\n	    GetComponent<SimplePanGesture>().Panned += panHandler;\n	    GetComponent<SimplePanGesture>().PanStarted += panStartHandler;\n	    GetComponent<SimplePanGesture>().PanCompleted += panCompleteHandler;\n	}\n\n	void OnDisable()\n	{\n	    // don't forget to unsubscribe\n	    GetComponent<TapGesture>().Tapped -= tappedHandler;\n	    GetComponent<SimplePanGesture>().Panned -= panHandler;\n	    GetComponent<SimplePanGesture>().PanStarted -= panStartHandler;\n	    GetComponent<SimplePanGesture>().PanCompleted -= panCompleteHandler;\n	}\n\n	//Process top event\n	private void tappedHandler(object sender, EventArgs e)\n	{\n		Debug.Log(\"TAPPED: \" + gameObject.GetInstanceID());\n	}\n\n	//Process Swip event\n	//This is a simple swipe, not directional data.\n	//TODO: Write custom swipe with direction.\n	private void panHandler(object sender, EventArgs e)\n	{\n		//Debug.Log(\"PANNING: \" + gameObject.GetInstanceID());\n	}\n\n	private void panStartHandler(object sender, EventArgs e)\n	{\n		Debug.Log(\"PAN START: \"+ gameObject.GetInstanceID());\n		SimplePanGesture gesture = (SimplePanGesture)sender;\n\n        localPositionToGo += gesture. * PanMultiplier;\n	}\n\n	private void panCompleteHandler(object sender, EventArgs e)\n	{\n		Debug.Log(\"PAN COMPLETE: \"+ gameObject.GetInstanceID());\n	}\n\n	private void swipeHandler(Direction dir)\n	{\n		switch (dir)\n		{\n			case Direction.up: break;\n			case Direction.down: break;\n			case Direction.left: break;\n			case Direction.right: break;\n		}\n\n	}\n}\n",
+			"file": "Assets/Scripts/BoxTap.cs",
+			"file_size": 2015,
+			"file_write_time": 130665849429800408,
+			"settings":
+			{
+				"buffer_size": 1993,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/C/Users/Ben/AppData/Roaming/Sublime Text 2/Packages/CompleteSharp/CompleteSharp.sublime-settings",
+			"settings":
+			{
+				"buffer_size": 2116,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Rhythm Commander.sublime-project",
+			"settings":
+			{
+				"buffer_size": 927,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Assets/Scripts/DirectionalSwipeGesture.cs",
+			"settings":
+			{
+				"buffer_size": 4957,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "Packages/Unity3D Build System/Unity.sublime-build",
+	"command_palette":
+	{
+		"height": 315.0,
+		"selected_items":
+		[
+			[
+				"pack",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Upgrade Package"
+			],
+			[
+				"pa",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 400.0
+	},
+	"console":
+	{
+		"height": 302.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/Users/Ben/AppData/Roaming/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/C/Users/Ben/Documents/Rhythm Commander/Rhythm Commander.sublime-project",
+		"/C/Users/Ben/Documents/Rhythm Commander/Assets/Scripts/DirectionalSwipeGesture.cs",
+		"/C/Users/Ben/Documents/Non Euclidean Demo/Non Euclidean Demo.sublime-project",
+		"/C/Users/Ben/Documents/Rhythm Commander/Assets/Scripts/BoxTap.cs",
+		"/C/Users/Ben/Documents/Rhythm Commander/Assets/BoxTap.cs",
+		"/C/Users/Ben/Documents/Rhythm Commander/Rhythm Commander.sln",
+		"/C/Users/Ben/Documents/Non Euclidean Demo/Assets/Portal.cs",
+		"/C/Users/Ben/Documents/Non Euclidean Demo/Assets/Teleport.cs",
+		"/C/Users/Ben/Documents/Rhythm Commander/Assets/TouchScript.Inputs/TouchScript.TUIO/InputSources/TuioInput.cs",
+		"/C/Users/Ben/Documents/Rhythm Commander/Assets/TouchScript.Editor/Debugging/TouchDebuggerEditor.cs",
+		"/C/Users/Ben/AppData/Roaming/Sublime Text 2/Packages/CompleteSharp/CompleteSharp.sublime-settings",
+		"/C/Users/Ben/AppData/Roaming/Sublime Text 2/Packages/CTags/Default.sublime-keymap",
+		"/C/Users/Ben/AppData/Roaming/Sublime Text 2/Packages/CompleteSharp/CompleteSharp.cs",
+		"/C/Users/Ben/AppData/Roaming/Sublime Text 2/Packages/CompleteSharp/package.json",
+		"/C/Users/Ben/AppData/Roaming/Sublime Text 2/Packages/CompleteSharp/sublimecompletioncommon/completioncommon.pyc",
+		"/C/Users/Ben/AppData/Roaming/Sublime Text 2/Packages/CompleteSharp/sublimecompletioncommon/__init__.py",
+		"/C/Users/Ben/AppData/Roaming/Sublime Text 2/Packages/CompleteSharp/sublimecompletioncommon/parsehelp/__init__.py",
+		"/C/Users/Ben/AppData/Roaming/Sublime Text 2/Packages/CompleteSharp/sublimecompletioncommon/completioncommon.py",
+		"/C/Users/Ben/AppData/Roaming/Sublime Text 2/Packages/CompleteSharp/sublimecompletioncommon/parsehelp/parsehelp.py",
+		"/C/Users/Ben/AppData/Roaming/Sublime Text 2/Packages/CompleteSharp/completesharp.py",
+		"/C/Users/Ben/Documents/Non Euclidean Demo/Non Euclidean Demo.sln",
+		"/C/Users/Ben/AppData/Roaming/Sublime Text 2/Packages/CompleteSharp/README.creole",
+		"/C/Users/Ben/AppData/Roaming/Sublime Text 2/Packages/CompleteSharp/Default.sublime-keymap",
+		"/C/Users/Ben/Documents/Space Builder/Space Builder.sublime-project",
+		"/C/Users/Ben/AppData/Roaming/Sublime Text 2/Packages/Unity3D Build System/Unity.sublime-build",
+		"/C/Users/Ben/Documents/Non Euclidean Demo/Assets/Standard Assets/Character Controllers/Sources/Scripts/MouseLook.cs",
+		"/C/Users/Ben/Documents/Non Euclidean Demo/Assets/MirrorReflection/Portal.shader",
+		"/C/Users/Ben/Documents/Non Euclidean Demo/Assets/MirrorReflection/Portal.cs",
+		"/C/Users/Ben/Documents/Non Euclidean Demo/Assets/MirrorReflection/MirrorReflection.shader",
+		"/C/Users/Ben/Documents/Non Euclidean Demo/Assets/MirrorReflection/CameraPortal.shader",
+		"/C/Users/Ben/Documents/Non Euclidean Demo/Assets/MirrorReflection/MirrorReflection.cs",
+		"/C/Users/Ben/Documents/Non Euclidean Demo/Assets/MirrorReflection/MirrorReflection_3.cs",
+		"/C/Users/Ben/Documents/Non Euclidean Demo/Assets/MirrorReflection/MirrorReflection_2.cs",
+		"/C/Users/Ben/Documents/Non Euclidean Demo/Assets/FillScreen.cs",
+		"/C/Users/Ben/Documents/Unity Portals/Assets/Scripts/Teleport.cs",
+		"/C/Users/Ben/Documents/Unity Portals/Assets/Shaders/JustZValue.shader",
+		"/C/Users/Ben/Documents/Unity Portals/Assets/Shaders/FillZValue.shader",
+		"/C/Users/Ben/Documents/Unity Portals/Assets/Scripts/FillScreen.cs",
+		"/C/Users/Ben/Documents/Space Builder/Assets/Point.cs",
+		"/C/Users/Ben/Documents/Space Builder/Assets/FillMesh.cs",
+		"/C/Users/Ben/Documents/Space Builder/Assets/MeshManager.cs",
+		"/C/Users/Ben/Documents/Space Builder/Assets/PolyEditor.cs",
+		"/C/Users/Ben/Documents/Space Builder/Assets/Interface.cs",
+		"/C/Users/Ben/AppData/Roaming/Sublime Text 2/Packages/CTags/CTags.sublime-settings",
+		"/C/Users/Ben/Documents/test",
+		"/C/Users/Ben/AppData/Local/Temp/fz3temp-1/aboutme.html",
+		"/C/Users/Ben/AppData/Local/Temp/fz3temp-1/portfolio.html",
+		"/C/Users/Ben/AppData/Local/Temp/fz3temp-1/resume.html",
+		"/C/Users/Ben/Downloads/The.Legend.of.Zelda.A.Link.Between.Worlds.EUR.3DS-CONTRAST/ctr-bzlp.nfo",
+		"/C/Users/Ben/Documents/blefevre.net/_/contact.html",
+		"/C/Users/Ben/Documents/Space Builder/Assets/CameraRay.cs",
+		"/C/Users/Ben/Documents/Space Builder/Assets/SubMesh.cs",
+		"/C/Users/Ben/Documents/Space Builder/Assets/bEnum.cs",
+		"/C/Users/Ben/AppData/Roaming/Sublime Text 2/Packages/Text Pastry/Default (Windows).sublime-keymap",
+		"/C/Users/Ben/AppData/Roaming/Sublime Text 2/Packages/User/Default (Windows).sublime-keymap",
+		"/C/Users/Ben/AppData/Roaming/Sublime Text 2/Packages/Default/Default (Windows).sublime-keymap",
+		"/C/Users/Ben/Documents/Space Builder/Assembly-CSharp.csproj",
+		"/C/Users/Ben/Documents/Space Builder/Space Builder.sln",
+		"/C/Users/Ben/Documents/Space Builder/Space Builder-csharp.sln",
+		"/C/Program Files (x86)/Unity/Editor/Data/Mono/lib/mono/2.0/Microsoft.CSharp.targets",
+		"/C/Users/Ben/Documents/Space Builder/Assets/Editor/BlenderAssetProcessor.js",
+		"/C/Users/Ben/AppData/Roaming/Sublime Text 2/Packages/Text Pastry/TextPastry.sublime-settings",
+		"/C/Users/Ben/Documents/Space Builder/Assets/Triangulator.cs",
+		"/C/Users/Ben/AppData/Roaming/Sublime Text 2/Packages/Unity3D/README.md",
+		"/C/Users/Ben/AppData/Roaming/Sublime Text 2/Packages/Unity3D/UnityC#.tmLanguage",
+		"/C/Users/Ben/AppData/Roaming/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
+		"/C/Users/Ben/Documents/Space Builder/Assets/FullInspector2/Samples/AssetStore/SampleAssetStoreDictionary.cs",
+		"/C/Users/Ben/Documents/Space Builder/Assets/DLLs/FullInspectorCore.dll",
+		"/C/Users/Ben/Documents/Space Builder/Assets/FullInspector2/Samples/AssetStore/SampleAssetStoreAbstractTypes.cs",
+		"/C/Users/Ben/Documents/Space Builder/Assets/FullInspector2/Samples/Other/Skill System/SkillsSample.cs",
+		"/C/Users/Ben/Documents/Space Builder/Assets/NoGameOnStart.cs",
+		"/C/Users/Ben/Documents/Space Builder/Assets/DoubleSided.shader",
+		"/C/Users/Ben/AppData/Roaming/Sublime Text 2/Packages/C#/C#.tmLanguage",
+		"/C/Users/Ben/Documents/Space Builder/Assembly-CSharp-Editor.csproj",
+		"/C/Users/Ben/AppData/Roaming/Sublime Text 2/Packages/User/Package Control.sublime-settings",
+		"/C/Users/Ben/Documents/Space Builder/Assets/Editor/NewBehaviourScript.js",
+		"/C/Users/Ben/Documents/Space Builder/Assets/Editor/BlenderAssetProcessor.cs",
+		"/C/Users/Ben/AppData/Roaming/Sublime Text 2/Packages/SublimeOnSaveBuild/SublimeOnSaveBuild.sublime-settings",
+		"/C/Users/Ben/AppData/Roaming/Sublime Text 2/Packages/User/SublimeOnSaveBuild.sublime-settings",
+		"/C/Users/Ben/Documents/Space Builder/sublime.sublime-project"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"flickTime",
+			"SwipeTime",
+			"flickedInvoker",
+			"\\",
+			"\\\\",
+			"the ",
+			"the path",
+			"/",
+			"\\\\",
+			"enabled",
+			"active",
+			"viewTransform",
+			"dll\"",
+			"\\\\ScriptAssemblies\\",
+			"portalTexture",
+			"M_Camera_Tr",
+			"M_Camera",
+			"PortalCam",
+			"PortalCamOutput",
+			"PortalResolution",
+			"Destination",
+			"viewTransform",
+			": ",
+			" : ",
+			"=",
+			" :  ",
+			" : ",
+			"M_Camera",
+			"camera",
+			"PortalCam",
+			"M_Camera_Tr",
+			":",
+			"position",
+			"dir",
+			"dummyCamera.transform.rotation ",
+			";\n",
+			"viewTransform",
+			"1F",
+			"F",
+			"0.5",
+			"transform.rotation",
+			"            reflectionCamera.transform.rotation",
+			"reflectionCamera.transform.rotation",
+			" cam.transform.position",
+			"transform",
+			"reflectionCamera",
+			"cam",
+			"portal2Cam",
+			"cam",
+			"portal1",
+			"portal2Cam",
+			"cam",
+			"portal1",
+			"portal2",
+			"portal2Cam",
+			"portal2",
+			"C:\\\\Users\\\\Ben\\\\Documents\\\\Space Builder",
+			"portal2",
+			"viewCam",
+			"portal1",
+			"transform",
+			"1.0f/",
+			"        ",
+			"testObj.transform.",
+			"snapPos",
+			"testObj.transform.position",
+			"hit.point",
+			"newPE",
+			"getID()",
+			"meshID",
+			"handlePos1",
+			"y",
+			"Vector2",
+			"y",
+			"Vector2",
+			"edge.Value.getCoords()",
+			"edge.Key.getCoords()",
+			"point2",
+			"point1",
+			"edge.Key.getCoords()",
+			"hit.point",
+			"pos1",
+			"pos2",
+			"testObj",
+			"bool",
+			"labelRect",
+			"keyLabel",
+			"KeyValuePair",
+			");\n",
+			"List<int>",
+			"ps2",
+			"pe2",
+			"ps1",
+			"pe1",
+			"float",
+			"Value",
+			"Key",
+			"y",
+			"x",
+			"testObj",
+			"\";\n",
+			"shiftLabel",
+			"idsList",
+			"v",
+			"tess",
+			"inner",
+			"System.Collections.Generic.",
+			"av",
+			"i",
+			"PE",
+			"Debug",
+			"av",
+			"i",
+			"float",
+			"int",
+			"Fraction",
+			"meshids",
+			"PE",
+			"6",
+			"0",
+			"PE2",
+			"points[0].getCoordsV3()",
+			"GetCoordsV3",
+			"getCoordsV3",
+			"GetCoordsV3",
+			"getCoordsV3",
+			"GetCoordsV3",
+			"getCoordsV3"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"swipeTime",
+			"swipedInvoker",
+			"destTransform",
+			"portalMaterial",
+			"mCameraTransform",
+			"mCamera",
+			"portalCam",
+			"portalCamOutput",
+			"portalResolution",
+			"viewTransform",
+			"MeshID",
+			"Input",
+			"int"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "Assets/Scripts/BoxTap.cs",
+					"settings":
+					{
+						"buffer_size": 1993,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1664,
+								1664
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Unity3D/UnityC#.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 675.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/C/Users/Ben/AppData/Roaming/Sublime Text 2/Packages/CompleteSharp/CompleteSharp.sublime-settings",
+					"settings":
+					{
+						"buffer_size": 2116,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1094,
+								1588
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 45.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "Rhythm Commander.sublime-project",
+					"settings":
+					{
+						"buffer_size": 927,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								844,
+								844
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 180.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "Assets/Scripts/DirectionalSwipeGesture.cs",
+					"settings":
+					{
+						"buffer_size": 4957,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3,
+								4957
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Unity3D/UnityC#.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 34.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 132.0
+	},
+	"replace":
+	{
+		"height": 62.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"",
+				"Assembly-CSharp-Editor.csproj"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 62.0,
+	"status_bar_visible": true
+}
