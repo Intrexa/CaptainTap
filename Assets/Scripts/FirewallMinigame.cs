@@ -8,6 +8,7 @@ public class FirewallMinigame : MonoBehaviour {
 	public Transform endPosition;
 	public float lerpTime;
 
+	private bool perfect = false;
 	private float lerpStart = -1.0f;
 	void Start()
 	{
@@ -20,7 +21,7 @@ public class FirewallMinigame : MonoBehaviour {
 		{
 			transform.position = Vector3.Lerp(startPosition.position, endPosition.position, (Time.time-lerpStart)/lerpTime);
 			if((Time.time-lerpStart)/lerpTime >= 1)
-				minigame.GameSuccess(true);
+				minigame.GameSuccess(perfect);
 		}
 	}
 
@@ -59,6 +60,8 @@ public class FirewallMinigame : MonoBehaviour {
 
 	private void RightSwipe()
 	{
+		if(Time.time - minigame.arrivalTime >= 1.5f - minigame.gamePanel.perfectThreshold )
+			perfect = true;
 		lerpStart = Time.time;
 	}
 }

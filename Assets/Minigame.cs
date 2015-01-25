@@ -126,7 +126,10 @@ public class Minigame : MonoBehaviour {
 	public void GameSuccess(bool perfect)
 	{
 		//Add Score
-		Debug.Log("Minigame Success");
+		if(perfect)
+			gamePanel.Score += 20;
+		else
+			gamePanel.Score += 10;
 		gamePanel.DestroyMinigame(quad);
 	}
 
