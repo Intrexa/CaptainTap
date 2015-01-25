@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class AsteroidController : MonoBehaviour {
+
 	private float[] endTimes;
 	private Object AsteroidPrefab;
 	private AsteroidActions newAsteroid;
@@ -15,7 +16,7 @@ public class AsteroidController : MonoBehaviour {
 		AsteroidPrefab = Resources.Load ("Prefabs/Asteroid");
 		startPos = transform.position;
 		noteIndex = 0;
-		endTimes = new float[] {2,5,10,15};
+		endTimes = new float[] {1,2,4,5};
 		starttime = endTimes [noteIndex] - 2;
 		//nexttime = Time.time;
 		currentTime = Time.time;

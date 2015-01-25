@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+﻿	using UnityEngine;
 using System.Collections;
 
 public class AsteroidActions : MonoBehaviour {
@@ -11,6 +11,8 @@ public class AsteroidActions : MonoBehaviour {
 	private Vector3 endScale;
 	private Vector3 positionOffset;
 	private float startTime;
+	private float RandVal = Random.value;
+	private Vector3 spin;
 	void OnEnable()
 	{
 		// subscribe to gesture's Pan event
@@ -32,7 +34,18 @@ public class AsteroidActions : MonoBehaviour {
 	void Start () {
 		currenttime = Time.time;
 		startPos = Vector3.one;
-		endPos = startPos + new Vector3 (3, 2, 0);
+		Vector3 offset = new Vector3 (2.5f, 1.5f, 0.0f);
+		spin = new Vector3 (0, 0, 8 * Random.Range (-1.0f, 1.0f));
+
+
+		// Randomly set position to a quadrant
+		if (Mathf.Round (Random.value) == 0.0f)
+			offset.x *= -1;
+		if (Mathf.Round (Random.value) == 0.0f)
+			offset.y *= -1;
+
+		endPos = startPos + offset;
+
 		startScale = Vector3.one * 0.1f;
 		endScale = transform.localScale * 8;
 		startTime = Time.time;
@@ -41,8 +54,10 @@ public class AsteroidActions : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		currenttime = Time.time;
-		transform.position = Vector3.Lerp(startPos, endPos, (currenttime- startTime)/(endtime - startTime));
-		transform.localScale = Vector3.Lerp(startScale, endScale, (currenttime- startTime)/(endtime - startTime));
+		float t = (currenttime - startTime) / (endtime - startTime);
+		transform.position = Vector3.Lerp(startPos, endPos, t);
+		transform.localScale = Vector3.Lerp(startScale, endScale, t);
+		transform.Rotate (spin);
 		if (currenttime >= endtime) {
 			Strike(); 
 		}
