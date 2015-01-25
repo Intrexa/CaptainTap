@@ -115,7 +115,8 @@ public class GamePanel : MonoBehaviour {
 
 	private void GameFail()
 	{
-
+			lives = 3;
+			Application.LoadLevel ("Menu");
 	}
 }
 

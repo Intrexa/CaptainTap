@@ -35,7 +35,7 @@ public class Minigame : MonoBehaviour {
 		sound_library = GameObject.Find ("GamePanel").GetComponent<SoundLibrary> ();
 		rhythm = new int[]{1, 0, 1, 0};
 		startPosition = transform.position;
-		totalTime = arrivalTime - Time.time;
+		totalTime = arrivalTime - Time.timeSinceLevelLoad;
 
 		//Move foreground and background
 		if (foreground)
@@ -90,14 +90,14 @@ public class Minigame : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		float timeLeft = arrivalTime - Time.time;
+		float timeLeft = arrivalTime - Time.timeSinceLevelLoad;
 
 		if(hintSource && timeLeft <= 0)
 		{	
 			if(hintDisplayCounter <= 0)
-				hintDisplayCounter = Time.time;
+				hintDisplayCounter = Time.timeSinceLevelLoad;
 			hintObject.SetActive(true);
-			int index = (int) Mathf.Repeat((((Time.time)-hintDisplayCounter) * hintTexture.Length/2.0f), hintTexture.Length);
+			int index = (int) Mathf.Repeat((((Time.timeSinceLevelLoad)-hintDisplayCounter) * hintTexture.Length/2.0f), hintTexture.Length);
 		    //Animate Sprite
 		    hintObject.renderer.material.mainTexture = hintTexture[index] as Texture; 
 		    if(hintSource.moving)
@@ -125,7 +125,7 @@ public class Minigame : MonoBehaviour {
 	public void GameFail()
 	{
 		Debug.Log (sound_library.badNote (duration));
-		music_score.newAudioSource ("beat", sound_library.badNote(duration), false, Time.time);
+		music_score.newAudioSource ("beat", sound_library.badNote(duration), false, Time.timeSinceLevelLoad);
 		gamePanel.Lives--;
 		gamePanel.DestroyMinigame(quad);
 	}
@@ -144,7 +144,7 @@ public class Minigame : MonoBehaviour {
 			gamePanel.Score += 10;
 
 		Debug.Log (sound_library);
-		music_score.newAudioSource ("beat", sound_library.getNote (duration, true), false, Time.time);
+		music_score.newAudioSource ("beat", sound_library.getNote (duration, true), false, Time.timeSinceLevelLoad);
 		Debug.Log("Minigame Success");
 	}
 }

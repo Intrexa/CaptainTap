@@ -58,7 +58,7 @@ public class AvoidSwipeAction : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		currenttime = Time.time;
+		currenttime = Time.timeSinceLevelLoad;
 
 		if (currenttime >= endTime) {
 			if (swiped) {
@@ -99,7 +99,7 @@ public class AvoidSwipeAction : MonoBehaviour {
 
 	void Swiped() {
 		AnimateSwiped ();
-		if (endTime - Time.time < 2) {
+		if (endTime - Time.timeSinceLevelLoad < 2) {
 			swiped = true;
 			Debug.Log ("Good Swipe");
 		} else {

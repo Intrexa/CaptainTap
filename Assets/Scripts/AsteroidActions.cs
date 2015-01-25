@@ -34,7 +34,7 @@ public class AsteroidActions : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		currenttime = Time.time;
+		currenttime = Time.timeSinceLevelLoad;
 		startPos = Vector3.one;
 		Vector3 offset = new Vector3 (2.5f, 1.5f, 0.0f);
 		spin = new Vector3 (0, 0, 8 * Random.Range (-1.0f, 1.0f));
@@ -50,13 +50,13 @@ public class AsteroidActions : MonoBehaviour {
 
 		startScale = Vector3.one * 0.1f;
 		endScale = transform.localScale * 16;
-		startTime = Time.time;
+		startTime = Time.timeSinceLevelLoad;
 		minigame = transform.parent.GetComponent<Minigame>();
 	}
 
 	// Update is called once per frame
 	void Update () {
-		currenttime = Time.time;
+		currenttime = Time.timeSinceLevelLoad;
 		float t = (currenttime - startTime) / (endtime - startTime);
 		transform.localPosition = Vector3.Lerp(startPos, endPos, t);
 		transform.localScale = Vector3.Lerp(startScale, endScale, t);
@@ -75,7 +75,13 @@ public class AsteroidActions : MonoBehaviour {
 
 
 	void Tapped() {
-		minigame.GameSuccess(true);
+		if (Mathf.Abs (Time.timeSinceLevelLoad - endtime) < 1) {
+
+			minigame.GameSuccess(true);
+
+		} else {
+			minigame.GameSuccess(false);
+		}
 		minigame.GameDestroy();
 	}
 }

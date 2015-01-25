@@ -19,8 +19,8 @@ public class FirewallMinigame : MonoBehaviour {
 	{
 		if(lerpStart > 0)
 		{
-			transform.position = Vector3.Lerp(startPosition.position, endPosition.position, (Time.time-lerpStart)/lerpTime);
-			if((Time.time-lerpStart)/lerpTime >= 1)
+			transform.position = Vector3.Lerp(startPosition.position, endPosition.position, (Time.timeSinceLevelLoad-lerpStart)/lerpTime);
+			if((Time.timeSinceLevelLoad-lerpStart)/lerpTime >= 1)
 				minigame.GameDestroy();
 		}
 	}
@@ -60,10 +60,10 @@ public class FirewallMinigame : MonoBehaviour {
 
 	private void RightSwipe()
 	{
-		if(Time.time - minigame.arrivalTime >= 1.5f - minigame.gamePanel.perfectThreshold )
+		if(Time.timeSinceLevelLoad - minigame.arrivalTime >= 1.5f - minigame.gamePanel.perfectThreshold )
 				minigame.GameSuccess(true);
 		else
 			minigame.GameSuccess(false);
-		lerpStart = Time.time;
+		lerpStart = Time.timeSinceLevelLoad;
 	}
 }

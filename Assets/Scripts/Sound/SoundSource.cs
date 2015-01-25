@@ -20,13 +20,13 @@ public class SoundSource : MonoBehaviour {
 		source.loop = loop;
 		source.playOnAwake = false;
 		source.PlayScheduled (time);
-		start_time = Time.time;
+		start_time = Time.timeSinceLevelLoad;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if (start_time != 0f) {
-			if (Time.time - start_time > source.clip.length) {
+			if (Time.timeSinceLevelLoad - start_time > source.clip.length) {
 				Destroy (gameObject);
 			}
 		}

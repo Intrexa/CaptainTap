@@ -111,7 +111,7 @@ public class MusicScore : MonoBehaviour {
 				//StartCoroutine("addMeasure");
 				beatIndex = 1;
 			}
-			else if (Time.time > beatTime (beatIndex + beatDiff)) {
+			else if (Time.timeSinceLevelLoad > beatTime (beatIndex + beatDiff)) {
 				beatIndex += beatDiff;
 				if (beatIndex == (16*6*3)) {
 					newBGMusic (1, true, beatTime (16*6*3));

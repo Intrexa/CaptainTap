@@ -30,8 +30,8 @@ public class AsteroidController : MonoBehaviour {
 		noteIndex = 0;
 		endTimes = new float[] {minigame.arrivalTime};//new float[] {2,5,10,15};
 		starttime = endTimes [noteIndex] - 2;
-		//nexttime = Time.time;
-		currentTime = Time.time;
+		//nexttime = Time.timeSinceLevelLoad;
+		currentTime = Time.timeSinceLevelLoad;
 		//for (int i=0; i<endTimes.Length; i++) {
 		//	SpawnAsteroid(startPos, starttime, endTimes[i]);
 		//}
@@ -40,7 +40,7 @@ public class AsteroidController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		currentTime = Time.time;
+		currentTime = Time.timeSinceLevelLoad;
 		if (currentTime >= starttime) {
 			SpawnAsteroid (startPos, endTimes [noteIndex++]);
 			if (noteIndex < endTimes.Length) {

@@ -104,7 +104,7 @@
 //                 deltaSequence.Add(ScreenPosition - PreviousScreenPosition);
 
 //                 float lastTime;
-//                 var deltas = deltaSequence.FindElementsLaterThan(Time.time - FlickTime, out lastTime);
+//                 var deltas = deltaSequence.FindElementsLaterThan(Time.timeSinceLevelLoad - FlickTime, out lastTime);
 //                 var totalMovement = Vector2.zero;
 //                 foreach (var delta in deltas) totalMovement += delta;
 
@@ -125,7 +125,7 @@
 //                 else
 //                 {
 //                     ScreenFlickVector = totalMovement;
-//                     ScreenFlickTime = Time.time - lastTime;
+//                     ScreenFlickTime = Time.timeSinceLevelLoad - lastTime;
 //                     setState(GestureState.Recognized);
 //                 }
 //             }

@@ -29,7 +29,7 @@ public class AvoidController : MonoBehaviour {
 			Debug.Log ("Must set background field in inspector!");
 		}
 
-		starttime = Time.time; 
+		starttime = Time.timeSinceLevelLoad; 
 		HintPrefab = Resources.Load ("Prefabs/Hint");
 		startPos = transform.localPosition;
 		startPos = new Vector3 (0, 0, 12);
@@ -45,7 +45,7 @@ public class AvoidController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		currentTime = Time.time;
+		currentTime = Time.timeSinceLevelLoad;
 		Vector3 verticalOffset = Vector3.up * 4.25f;
 		swipeUp = false;
 		//Debug.Log ("NOW: " + currentTime + " ETA:" + nexttime);
