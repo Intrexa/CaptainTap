@@ -56,7 +56,7 @@ public class AsteroidActions : MonoBehaviour {
 	}
 
 	public void TappedTest() {
-		if (Mathf.Abs (Time.time - endtime) < 1) {
+		if (endtime - Time.time < 2.0f) {
 			Hit ();
 		} else {
 			Debug.Log ("Miss");
