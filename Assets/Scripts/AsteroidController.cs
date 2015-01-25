@@ -15,35 +15,39 @@ public class AsteroidController : MonoBehaviour {
 		AsteroidPrefab = Resources.Load ("Prefabs/Asteroid");
 		startPos = transform.position;
 		noteIndex = 0;
-		endTimes = new float[] {2};
-		nexttime = Time.time;
+		endTimes = new float[] {2,5,10,15};
+		starttime = endTimes [noteIndex] - 2;
+		//nexttime = Time.time;
 		currentTime = Time.time;
-		for (int i=0; i<endTimes.Length; i++) {
-			SpawnAsteroid(startPos, starttime, endTimes[i]);
-		}
+		//for (int i=0; i<endTimes.Length; i++) {
+		//	SpawnAsteroid(startPos, starttime, endTimes[i]);
+		//}
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		currentTime += Time.time;
-//		if (nexttime <= currentTime) {
-//			SpawnAsteroid(startPos, currentTime, endTimes[noteIndex++]);  
-//			nexttime = endTimes[noteIndex];	
-//		}
+		currentTime = Time.time;
+		if (currentTime >= starttime) {
+			SpawnAsteroid (startPos, endTimes [noteIndex++]);
+			if (noteIndex < endTimes.Length) {
+				starttime = endTimes [noteIndex] - 2;
+			} else {
+				KillMinigame ();
+			}
+		}
 	}
 
-	void SpawnAsteroid(Vector3 startPos, float starttime, float endtime)
+	void SpawnAsteroid(Vector3 startPos, float endtime)
 	{
 
 		GameObject asteroid = GameObject.Instantiate (AsteroidPrefab) as GameObject;
 		asteroid.transform.position = startPos;
 		newAsteroid = asteroid.GetComponent<AsteroidActions> ();
-		newAsteroid.setStartTime (starttime);
 		newAsteroid.setEndTime(endtime);
 
 	}
 
 	void KillMinigame() {
-		//cleanup
+		gameObject.SetActive(false);//cleanup
 	}
 }

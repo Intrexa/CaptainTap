@@ -2,8 +2,7 @@
 using System.Collections;
 
 public class AsteroidActions : MonoBehaviour {
-
-	private float starttime;
+	
 	private float endtime;
 	private float currenttime;
 	private Vector3 startPos;
@@ -11,10 +10,19 @@ public class AsteroidActions : MonoBehaviour {
 	private Vector3 startScale;
 	private Vector3 endScale;
 	private Vector3 positionOffset;
+	private float startTime;
+	void OnEnable()
+	{
+		// subscribe to gesture's Pan event
+		GetComponent<TapHandler>().TapAction += TappedTest;
+	}
+	
+	void OnDisable()
+	{
+		// subscribe to gesture's Pan event
+		GetComponent<TapHandler>().TapAction -= TappedTest;
+	}
 
-	public void setStartTime(float y) {
-				starttime = y;
-		}
 
 	public void setEndTime(float t) {
 		endtime = t;
@@ -23,27 +31,40 @@ public class AsteroidActions : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		currenttime = Time.time;
-		endPos = startPos + new Vector3 (2, 2, 0);
-		Debug.Log (startPos);
-		startScale = transform.localScale;
-		endScale = transform.localScale * 10;
+		startPos = Vector3.one;
+		endPos = startPos + new Vector3 (3, 2, 0);
+		startScale = Vector3.one * 0.1f;
+		endScale = transform.localScale * 8;
+		startTime = Time.time;
 	}
 
 	// Update is called once per frame
 	void Update () {
 		currenttime = Time.time;
-		transform.position = Vector3.MoveTowards(startPos, endPos, currenttime/endtime);
-		transform.localScale = Vector3.Lerp(startScale, endScale, currenttime/endtime);
-
+		transform.position = Vector3.Lerp(startPos, endPos, (currenttime- startTime)/(endtime - startTime));
+		transform.localScale = Vector3.Lerp(startScale, endScale, (currenttime- startTime)/(endtime - startTime));
 		if (currenttime >= endtime) {
 			Strike(); 
-				}
+		}
 
 	}
 
 	void Strike() {
 		Destroy(this.gameObject);
+		transform.position = startPos;
+		transform.localScale = Vector3.one;
 	}
 
+	public void TappedTest() {
+		if (Mathf.Abs (Time.time - endtime) < 1) {
+			Hit ();
+		} else {
+			Debug.Log ("Miss");
+		}
+	}
 
+	void Hit() {
+		Debug.Log ("Hit");
+		Destroy (this.gameObject);
+	}
 }
