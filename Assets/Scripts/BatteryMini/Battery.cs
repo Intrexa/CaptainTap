@@ -10,13 +10,41 @@ namespace _Battery{
 		public Vector3 midPos;
 		public Vector3 endPos;
 		private BatteryStep curStep = BatteryStep.start;
-		public TouchType touch;
+		public TouchPattern touchPattern;
 		// Use this for initialization
 		void Start () {
 
+			GetComponent<TapHandler>().TapAction += tapEvent;
+			GetComponent<SwipeHandler>().UpSwipeAction += upSwipeEvent;
+			GetComponent<SwipeHandler>().DownSwipeAction += downSwipeEvent;
+			GetComponent<SwipeHandler>().LeftSwipeAction += leftSwipeEvent;
+			GetComponent<SwipeHandler>().RightSwipeAction += rightSwipeEvent;
+
 		}
 
-	public bool advanceStep()
+		private void handleTouch(TouchType touchType)
+		{
+			if (curStep == BatteryStep.start && touchType == TouchType.leftSwipeAction && touchPattern == TouchPattern.swipe_swipe) {
+						GameObject.Find ("BatteryScene").GetComponent<BatteryScene> ().handleGesture (Performance.perfect);
+				} else if (curStep == BatteryStep.moveMid && touchType == TouchType.downSwipeAction && touchPattern == TouchPattern.swipe_swipe
+						&& transform.position == midPos) {
+						GameObject.Find ("BatteryScene").GetComponent<BatteryScene> ().handleGesture (Performance.perfect);
+				} else if (curStep == BatteryStep.start && touchType == TouchType.tapAction && touchPattern == TouchPattern.touch_swipe) {
+						GameObject.Find ("BatteryScene").GetComponent<BatteryScene> ().handleGesture (Performance.perfect);
+				} else if (curStep == BatteryStep.moveMid && touchType == TouchType.downSwipeAction && touchPattern == TouchPattern.touch_swipe
+						&& transform.position == midPos) {
+						GameObject.Find ("BatteryScene").GetComponent<BatteryScene> ().handleGesture (Performance.perfect);
+				} else {
+						GameObject.Find ("BatteryScene").GetComponent<BatteryScene> ().handleGesture (Performance.perfect);
+				}
+
+		}
+
+			
+
+
+
+		public bool advanceStep()
 		{
 			switch (curStep) {
 			case BatteryStep.start:
@@ -77,5 +105,31 @@ namespace _Battery{
 			//start destroy animation
 			//remove itself
 		}
+
+		private void tapEvent()
+		{
+			handleTouch(TouchType.tapAction);
+		}
+	
+		private void leftSwipeEvent()
+		{
+			handleTouch(TouchType.leftSwipeAction);
+		}
+		
+		private void downSwipeEvent()
+		{
+			handleTouch(TouchType.downSwipeAction);
+		}
+		
+		private void rightSwipeEvent()
+		{
+			handleTouch(TouchType.rightSwipeAction);
+		}
+		
+		private void upSwipeEvent()
+		{
+			handleTouch(TouchType.upSwipeAction);
+		}
 	}
 }
+

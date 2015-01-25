@@ -26,4 +26,17 @@ namespace _Battery
 		,downSwipeAction
 		,rightSwipeAction
 	};
+
+	public enum TouchPattern
+	{
+		swipe_swipe
+		,touch_swipe
+	};
+
+	public enum Performance
+	{
+		perfect
+		,partial
+		,miss
+	};
 }

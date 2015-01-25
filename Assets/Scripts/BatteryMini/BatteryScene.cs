@@ -21,6 +21,7 @@ public class BatteryScene : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
+			name = "BatteryScene";
 			GetComponent<TapHandler>().TapAction += handleGesture;
 			GetComponent<SwipeHandler>().UpSwipeAction += handleGesture;
 			GetComponent<SwipeHandler>().DownSwipeAction += handleGesture;
@@ -33,34 +34,53 @@ public class BatteryScene : MonoBehaviour {
 	}
 	private void handleGesture()
 		{
-			handleGesture(null);
+			handleGesture(Performance.miss);
 		}
 
-	private void handleGesture(Event touchEvent)
+		/// <summary>
+		/// Grades the gesture and triggers the next step
+		/// </summary>
+		/// <returns>Returns how well you did</returns>
+		/// <param name="result">Entering function is the highest level the result of the gesture can be</param>
+	public Performance handleGesture(Performance result)
 	{
+			//TODO:
+			//We got a touch event, see it's within time span
+			//If it is, call the method to be 'graded'*/
+
+		if (object.ReferenceEquals(null,result) || result == Performance.miss) {
+				//call failure code
+				return Performance.miss;
+						}
+		//TODO: Check time vs when we should have hit
 		switch (currentStep) {
 		case SceneStep.start:
 				oldBattery.advanceStep();
 				currentStep = SceneStep.removeOld;
+				return result;
 			break;
 		case SceneStep.removeOld:
 				if(oldBattery.advanceStep()){
 					currentStep = SceneStep.grabNew;
-				};
+				}
+				return result;
 			break;
 		case SceneStep.grabNew:
 				newBattery.advanceStep();
 					currentStep = SceneStep.insertNew;
+				return result;
 			break;
 		case SceneStep.insertNew:
 				if(newBattery.advanceStep()){
 					currentStep = SceneStep.end;
 				}
-
+				return result;
 			break;
 		case SceneStep.end:
+				return result;
 			break;
 		}
+			return result;
 	}
 	
 	
