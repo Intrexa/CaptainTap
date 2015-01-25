@@ -13,6 +13,8 @@ public class AsteroidController : MonoBehaviour {
 	private float starttime;
 	private float nexttime;
 	private int noteIndex;
+
+	private Minigame minigame;
 	// Use this for initialization
 	void Start () {
 		if (!ship) {
@@ -22,17 +24,18 @@ public class AsteroidController : MonoBehaviour {
 		if (!background) {
 			Debug.Log ("Must set ship field in inspector!");
 		}
-
+		minigame = transform.parent.GetComponent<Minigame>();
 		AsteroidPrefab = Resources.Load ("Prefabs/Asteroid");
 		startPos = transform.position;
 		noteIndex = 0;
-		endTimes = new float[] {1,2,4,5};
+		endTimes = new float[] {minigame.arrivalTime};//new float[] {2,5,10,15};
 		starttime = endTimes [noteIndex] - 2;
 		//nexttime = Time.time;
 		currentTime = Time.time;
 		//for (int i=0; i<endTimes.Length; i++) {
 		//	SpawnAsteroid(startPos, starttime, endTimes[i]);
 		//}
+
 	}
 	
 	// Update is called once per frame
@@ -52,9 +55,13 @@ public class AsteroidController : MonoBehaviour {
 	{
 
 		GameObject asteroid = GameObject.Instantiate (AsteroidPrefab) as GameObject;
-		asteroid.transform.position = startPos;
+		asteroid.transform.localPosition = startPos;
+		asteroid.transform.parent = transform.parent;
+		asteroid.transform.localScale = Vector3.one * 0.1f;
 		newAsteroid = asteroid.GetComponent<AsteroidActions> ();
-		newAsteroid.setEndTime(endtime);
+		newAsteroid.setEndTime(endtime+minigame.gamePanel.goodThreshold);
+
+		minigame.GenerateHints();
 
 	}
 

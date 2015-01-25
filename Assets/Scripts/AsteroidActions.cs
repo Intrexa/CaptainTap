@@ -13,6 +13,8 @@ public class AsteroidActions : MonoBehaviour {
 	private float startTime;
 	private float RandVal = Random.value;
 	private Vector3 spin;
+	private Minigame minigame;
+
 	void OnEnable()
 	{
 		// subscribe to gesture's Pan event
@@ -27,7 +29,7 @@ public class AsteroidActions : MonoBehaviour {
 
 
 	public void setEndTime(float t) {
-		endtime = t;
+		endtime = t+1;
 	}
 
 	// Use this for initialization
@@ -47,8 +49,9 @@ public class AsteroidActions : MonoBehaviour {
 		endPos = startPos + offset;
 
 		startScale = Vector3.one * 0.1f;
-		endScale = transform.localScale * 8;
+		endScale = transform.localScale * 16;
 		startTime = Time.time;
+		minigame = transform.parent.GetComponent<Minigame>();
 	}
 
 	// Update is called once per frame
@@ -66,20 +69,17 @@ public class AsteroidActions : MonoBehaviour {
 
 	void Strike() {
 		Destroy(this.gameObject);
-		transform.position = startPos;
+		transform.localPosition = startPos;
 		transform.localScale = Vector3.one;
 	}
 
 	void Tapped() {
 		if (Mathf.Abs (Time.time - endtime) < 1) {
 			Hit ();
-		} else {
-			Debug.Log ("Miss");
-		}
-	}
 
-	void Hit() {
-		Debug.Log ("Hit");
-		Destroy (this.gameObject);
+		} else {
+			minigame.GameSuccess(false);
+		}
+		minigame.GameDestroy();
 	}
 }

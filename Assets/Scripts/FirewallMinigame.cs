@@ -4,24 +4,24 @@ using System.Collections;
 public class FirewallMinigame : MonoBehaviour {
 
 	public Minigame minigame;
+	public Transform startPosition;
 	public Transform endPosition;
 	public float lerpTime;
 
-	private Vector3 startPosition;
+	private bool perfect = false;
 	private float lerpStart = -1.0f;
 	void Start()
 	{
 		minigame = transform.parent.GetComponent<Minigame>();
-		startPosition = transform.position;
 	}
 
 	void Update()
 	{
 		if(lerpStart > 0)
 		{
-			transform.position = Vector3.Lerp(startPosition, endPosition.position, (Time.time-lerpStart)/lerpTime);
+			transform.position = Vector3.Lerp(startPosition.position, endPosition.position, (Time.time-lerpStart)/lerpTime);
 			if((Time.time-lerpStart)/lerpTime >= 1)
-				minigame.GameSuccess(true);
+				minigame.GameDestroy();
 		}
 	}
 
@@ -60,6 +60,10 @@ public class FirewallMinigame : MonoBehaviour {
 
 	private void RightSwipe()
 	{
+		if(Time.time - minigame.arrivalTime >= 1.5f - minigame.gamePanel.perfectThreshold )
+				minigame.GameSuccess(true);
+		else
+			minigame.GameSuccess(false);
 		lerpStart = Time.time;
 	}
 }

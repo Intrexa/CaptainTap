@@ -74,7 +74,6 @@ public class SwipeHandler : MonoBehaviour {
 			swipeHandler(Direction.down);
 		else if(panDelta.y < -swipeThreshold)
 			swipeHandler(Direction.up);
-
 	}
 
 	//Handle a swipe in a direction

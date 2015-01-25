@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class GamePanel : MonoBehaviour {
 
 	public Minigame[] minigameArray;
-	public GameObject tempMiniGame;
+	public GameObject[] tempMiniGameList;
 	public float panelZDistance;
 
 	public float spawnDistance;
@@ -12,7 +13,12 @@ public class GamePanel : MonoBehaviour {
 	public float goodThreshold = 0.5f;
 	public float perfectThreshold = 0.2f;
 
-	private int lives;
+	public Material[] borderTextures;
+	[SerializeField]
+	private Sprite[] livesSprites;
+	private Text scoreLabel; 
+	[SerializeField]
+	private int lives = 3;
 	public int Lives
     {
         get
@@ -22,8 +28,32 @@ public class GamePanel : MonoBehaviour {
         set
         {
             lives = value;
+
+    	    switch (lives) {
+        	case 2: transform.FindChild("Canvas").FindChild("Life3").GetComponent<Image>().sprite = livesSprites[1];
+        			break;
+        	case 1: transform.FindChild("Canvas").FindChild("Life2").GetComponent<Image>().sprite = livesSprites[1];
+        			break;
+        	case 0: transform.FindChild("Canvas").FindChild("Life1").GetComponent<Image>().sprite = livesSprites[1];
+					break;
+        	}
+
             if(lives <= 0)
             	GameFail();
+        }
+    }
+
+    private int score = 0;
+	public int Score
+    {
+        get
+        {
+            return score;
+        }
+        set
+        {
+            score = value;
+            scoreLabel.text = "Score: " + score;
         }
     }
 
@@ -31,6 +61,7 @@ public class GamePanel : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
+		scoreLabel = transform.FindChild("Canvas").FindChild("Score").GetComponent<Text>() as Text;
 		//Find Centre points of Quadrants;
 		miniGamePositions = new Vector3[4];
 		miniGamePositions[0] = Camera.main.ScreenToWorldPoint(new Vector3((Screen.width*0.25f), (Screen.height*0.25f), Camera.main.nearClipPlane+panelZDistance));//new Vector3((Screen.width*0.25f),transform.y,(Screen.height*0.25f));
@@ -60,17 +91,17 @@ public class GamePanel : MonoBehaviour {
 
 	private void createMinigame(int quad)
 	{	
+		GameObject gameToCreate = tempMiniGameList[Random.Range(0, tempMiniGameList.Length)];
 		//GameObject newGame = //Score.GetNewMiniGame();
-		GameObject newGO = Instantiate(tempMiniGame, miniGamePositions[quad],tempMiniGame.transform.rotation) as GameObject;
-		newGO.transform.localScale = new Vector3(0.5f,0.5f,0.5f);
-		//newGO.renderer.material.color = new Color(Random.value,Random.value,Random.value);
+		GameObject newGO = Instantiate(gameToCreate, miniGamePositions[quad],gameToCreate.transform.rotation) as GameObject;
+		newGO.transform.localScale =new Vector3(0.01f,0.01f,0.01f);
 		newGO.transform.parent = transform;
 		minigameArray[quad] = newGO.GetComponent<Minigame>() as Minigame;
 		minigameArray[quad].quad = quad;
 		minigameArray[quad].width = Screen.width*0.5f;
 		minigameArray[quad].height = Screen.height*0.5f;
 		minigameArray[quad].fullScale = 0.5f;
-		minigameArray[quad].arriveTime = Time.time + Random.Range(5, 10);	//Testing
+		minigameArray[quad].arrivalTime = Time.time + Random.Range(5, 10);	//Testing
 	}
 
 	private void GameFail()
