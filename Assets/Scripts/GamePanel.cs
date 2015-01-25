@@ -71,7 +71,7 @@ public class GamePanel : MonoBehaviour {
 		minigameArray[quad].width = Screen.width*0.5f;
 		minigameArray[quad].height = Screen.height*0.5f;
 		minigameArray[quad].fullScale = 0.5f;
-		minigameArray[quad].arrivalTime = Time.time + Random.Range(5, 10);	//Testing
+		minigameArray[quad].arrivalTime = Time.time + Random.Range(1, 5);	//Testing
 	}
 
 	private void GameFail()
