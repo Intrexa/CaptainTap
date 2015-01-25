@@ -2,6 +2,8 @@
 using System.Collections;
 
 public class AsteroidController : MonoBehaviour {
+	public ShipMovement ship;
+	public SwipeHandler background;
 
 	private float[] endTimes;
 	private Object AsteroidPrefab;
@@ -13,6 +15,14 @@ public class AsteroidController : MonoBehaviour {
 	private int noteIndex;
 	// Use this for initialization
 	void Start () {
+		if (!ship) {
+			Debug.Log ("Must set ship field in inspector!");
+		}
+
+		if (!background) {
+			Debug.Log ("Must set ship field in inspector!");
+		}
+
 		AsteroidPrefab = Resources.Load ("Prefabs/Asteroid");
 		startPos = transform.position;
 		noteIndex = 0;

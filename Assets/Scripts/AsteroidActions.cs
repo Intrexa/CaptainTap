@@ -16,13 +16,13 @@ public class AsteroidActions : MonoBehaviour {
 	void OnEnable()
 	{
 		// subscribe to gesture's Pan event
-		GetComponent<TapHandler>().TapAction += TappedTest;
+		GetComponent<TapHandler>().TapAction += Tapped;
 	}
 	
 	void OnDisable()
 	{
 		// subscribe to gesture's Pan event
-		GetComponent<TapHandler>().TapAction -= TappedTest;
+		GetComponent<TapHandler>().TapAction -= Tapped;
 	}
 
 
@@ -70,7 +70,7 @@ public class AsteroidActions : MonoBehaviour {
 		transform.localScale = Vector3.one;
 	}
 
-	public void TappedTest() {
+	void Tapped() {
 		if (Mathf.Abs (Time.time - endtime) < 1) {
 			Hit ();
 		} else {

@@ -41,7 +41,7 @@ public class ShipMovement : MonoBehaviour {
 	void Start () {
 		startPos = transform.position;
 		crashing = false;
-		waiting = false;
+		waiting = true;
 		currenttime = 0;
 	}
 	
