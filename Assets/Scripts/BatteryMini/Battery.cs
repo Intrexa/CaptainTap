@@ -67,14 +67,14 @@ namespace _Battery{
 			case BatteryStep.Wall3:
 				transform.position = wall4Pos;
 				transform.localScale = wall4Size;
-					curStep = BatteryStep.Wall4;
+				curStep = BatteryStep.Wall4;
 				return true;
 				break;
 			case BatteryStep.Wall4:
 				transform.position = wall5Pos;
 				transform.localScale = wall5Size;
-					curStep = BatteryStep.Wall5;
-					return true;
+				curStep = BatteryStep.Wall5;
+				return true;
 				break;
 			case BatteryStep.Wall5:
 				destroy();
