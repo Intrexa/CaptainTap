@@ -58,7 +58,7 @@ public class AsteroidActions : MonoBehaviour {
 	void Update () {
 		currenttime = Time.time;
 		float t = (currenttime - startTime) / (endtime - startTime);
-		transform.position = Vector3.Lerp(startPos, endPos, t);
+		transform.localPosition = Vector3.Lerp(startPos, endPos, t);
 		transform.localScale = Vector3.Lerp(startScale, endScale, t);
 		transform.Rotate (spin);
 		if (currenttime >= endtime) {
