@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using UnityEditor;
+//using UnityEditor;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -63,7 +63,7 @@ public class MusicScore : MonoBehaviour {
 		Debug.Log (Comp_1_Patterns);
 		Debug.Log (Comp_2_Patterns);
 		Debug.Log (Comp_3_Patterns);
-		EditorUtility.SetDirty(transform);
+		//EditorUtility.SetDirty(transform);
 		CSVReader.DebugOutputGrid(CSVReader.SplitCsvGrid(csv.text));
 
 		addPhrase();

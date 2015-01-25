@@ -14,7 +14,7 @@ public class ClusterAction : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		transform.Translate (-speed, 0, 0);
+		transform.localPosition = transform.localPosition - new Vector3 (-speed, 0, 0);
 
 		if (transform.position.x <= endPos) {
 			destroy ();

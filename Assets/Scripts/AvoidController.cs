@@ -10,6 +10,8 @@ public class AvoidController : MonoBehaviour {
 	public float spawnTiming = 2;
 
 	private float[] endTimes;
+	private Object AvoidGroupPrefab;
+
 	private Object HintPrefab;
 	private AvoidSwipeAction newHint;
 	private Vector3 startPos;
@@ -29,8 +31,8 @@ public class AvoidController : MonoBehaviour {
 
 		starttime = Time.time; 
 		HintPrefab = Resources.Load ("Prefabs/Hint");
-		startPos = transform.position;
-		startPos = new Vector3 (0, 0, -12);
+		startPos = transform.localPosition;
+		startPos = new Vector3 (0, 0, 12);
 		noteIndex = 0;
 		endTimes = new float[] {5, 9, 11};
 		nexttime = endTimes [0];
@@ -71,6 +73,7 @@ public class AvoidController : MonoBehaviour {
 	void SpawnHint(float endTime) {
 		GameObject hint = GameObject.Instantiate (HintPrefab) as GameObject;
 		hint.transform.localPosition = startPos;
+		hint.transform.parent = transform;
 		newHint = hint.GetComponent<AvoidSwipeAction> ();
 		newHint.setShip (ship);
 		newHint.setBackground (background);

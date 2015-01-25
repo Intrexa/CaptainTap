@@ -45,7 +45,7 @@ public class AvoidSwipeAction : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		spawnPos = new Vector3 (28, 0, 0);
+		spawnPos = new Vector3 (28, 0, 0) + transform.localPosition;
 		spawnOffset = Vector3.down * 4.25f;
 		if (!swipeUp) {
 			background.DownSwipeAction += Swiped;
@@ -73,8 +73,10 @@ public class AvoidSwipeAction : MonoBehaviour {
 	void SpawnCluster(Vector3 startPos)
 	{
 		GameObject cluster = GameObject.Instantiate (ClusterPrefab) as GameObject;
-		cluster.transform.position = startPos;
+		Debug.Break();
+		cluster.transform.localPosition = startPos;
 		newCluster = cluster.GetComponent<ClusterAction> ();
+		cluster.transform.parent = transform.parent;
 	}
 
 	void Success() {

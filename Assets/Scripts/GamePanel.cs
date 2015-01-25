@@ -13,7 +13,6 @@ public class GamePanel : MonoBehaviour {
 	public float goodThreshold = 0.5f;
 	public float perfectThreshold = 0.2f;
 
-<<<<<<< HEAD
 	public Material[] borderTextures;
 	[SerializeField]
 	private Sprite[] livesSprites;
@@ -22,11 +21,6 @@ public class GamePanel : MonoBehaviour {
 	private int lives = 3;
 	public MusicScore music_score;
 
-=======
-	public MusicScore music_score;
-
-	private int lives;
->>>>>>> 1a407a715ee38ec23058b8e1df6f6aec0621fe5b
 	public int Lives
     {
         get
@@ -71,10 +65,7 @@ public class GamePanel : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-<<<<<<< HEAD
 		scoreLabel = transform.FindChild("Canvas").FindChild("Score").GetComponent<Text>() as Text;
-=======
->>>>>>> 1a407a715ee38ec23058b8e1df6f6aec0621fe5b
 		music_score = GetComponent<MusicScore> ();
 
 		//Find Centre points of Quadrants;
