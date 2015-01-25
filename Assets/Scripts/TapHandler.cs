@@ -29,7 +29,12 @@ public class TapHandler : MonoBehaviour {
 		if(debugLog)
 			print("TAPPED: " + gameObject.name);
 
-		TapAction();
+		try{
+		TapAction();}
+		catch (NullReferenceException error)
+		{
+			Debug.LogWarning("Tapped Handler has no registered event");
+		}
 	}
 	
 	private void print(string message)

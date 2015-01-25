@@ -83,16 +83,36 @@ public class SwipeHandler : MonoBehaviour {
 		switch (dir)
 		{
 			case Direction.up: 		print("Swiped Up");
-									UpSwipeAction();
+									try {
+										UpSwipeAction();}
+									catch (NullReferenceException error)
+									{
+										Debug.LogWarning("Swiped Up has no registered event");
+									}
 									break;
 			case Direction.down: 	print("Swiped Down");
-									DownSwipeAction();
+									try {
+										DownSwipeAction();}
+									catch (NullReferenceException error)
+									{
+										Debug.LogWarning("Swiped Down has no registered event");
+									}
 									break;
 			case Direction.left: 	print("Swiped Left");
-									LeftSwipeAction();
+									try {
+										LeftSwipeAction();}
+									catch (NullReferenceException error)
+									{
+										Debug.LogWarning("Swiped Left has no registered event");
+									}
 									break;
 			case Direction.right: 	print("Swiped Right");
-									RightSwipeAction();
+									try {
+										RightSwipeAction();}
+									catch (NullReferenceException error)
+									{
+										Debug.LogWarning("Swiped Right has no registered event");
+									}
 									break;
 		}
 	}

@@ -26,7 +26,7 @@ public class Minigame : MonoBehaviour {
 			foreground.position = new Vector3(foreground.position.x,foreground.position.y,Camera.main.nearClipPlane);
 
 		if (background)
-			background.position = new Vector3(background.position.x,background.position.y,Camera.main.farClipPlane-100);
+			background.position = new Vector3(background.position.x,background.position.y,500);
 	}
 
 	
@@ -55,7 +55,8 @@ public class Minigame : MonoBehaviour {
 
 	public void GameSuccess(bool perfect)
 	{
-
+		//Add Score
+		gamePanel.DestroyMinigame(quad);
 	}
 
 }
