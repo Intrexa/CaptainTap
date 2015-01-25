@@ -6,11 +6,12 @@ public class Minigame : MonoBehaviour {
 	public Transform foreground, background;
 	public float arrivalTime;
 
-
-
 	public float fullScale;
 
 	public GameObject hintObject;
+
+	public bool isDone;
+
 	//Can't be Texture, you need create an Object and later convert in Texture
 	private Object[] hintTexture;
 	 
@@ -29,8 +30,6 @@ public class Minigame : MonoBehaviour {
 		startPosition = transform.position;
 		totalTime = arrivalTime - Time.time;
 
-
-
 		//Move foreground and background
 		if (foreground)
 			foreground.position = new Vector3(foreground.position.x,foreground.position.y,Camera.main.nearClipPlane);
@@ -38,6 +37,8 @@ public class Minigame : MonoBehaviour {
 			background.localPosition = new Vector3(background.localPosition.x,background.localPosition.y,500);
 
 		GenerateHints();
+
+		transform.FindChild("Border").renderer.material = gamePanel.borderTextures[quad];
 	}
 
 
@@ -82,6 +83,7 @@ public class Minigame : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+
 		float timeLeft = arrivalTime - Time.time;
 
 		if(hintSource && timeLeft <= 0)
@@ -120,13 +122,19 @@ public class Minigame : MonoBehaviour {
 		gamePanel.DestroyMinigame(quad);
 	}
 
-
+	public void GameDestroy()
+	{
+		gamePanel.DestroyMinigame(quad);
+	}
 
 	public void GameSuccess(bool perfect)
 	{
 		//Add Score
-		Debug.Log("Minigame Success");
-		gamePanel.DestroyMinigame(quad);
+		if(perfect)
+			gamePanel.Score += 20;
+		else
+			gamePanel.Score += 10;
+		
 	}
 
 

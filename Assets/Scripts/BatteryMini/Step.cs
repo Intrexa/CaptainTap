@@ -3,21 +3,20 @@ namespace _Battery
 {
 		public enum SceneStep
 		{
-		idle
-		,start 
-		,removeOld 
-		,grabNew 
-		,insertNew 
-		,end 
+		Wall1
+		,Wall2 
+		,Wall3 
+		,Wall4 
+		,Wall5
 	};
 
 	public enum BatteryStep
 	{
-		idle
-		,start 
-		,moveMid 
-		,moveEnd 
-		,end 
+		Wall1
+		,Wall2 
+		,Wall3 
+		,Wall4 
+		,Wall5
 	};
 
 	public enum TouchType
