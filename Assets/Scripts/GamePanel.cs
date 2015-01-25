@@ -63,15 +63,14 @@ public class GamePanel : MonoBehaviour {
 		GameObject gameToCreate = tempMiniGameList[Random.Range(0, tempMiniGameList.Length)];
 		//GameObject newGame = //Score.GetNewMiniGame();
 		GameObject newGO = Instantiate(gameToCreate, miniGamePositions[quad],gameToCreate.transform.rotation) as GameObject;
-		newGO.transform.localScale = new Vector3(0.5f,0.5f,0.5f);
-		//newGO.renderer.material.color = new Color(Random.value,Random.value,Random.value);
+		newGO.transform.localScale =new Vector3(0.01f,0.01f,0.01f);
 		newGO.transform.parent = transform;
 		minigameArray[quad] = newGO.GetComponent<Minigame>() as Minigame;
 		minigameArray[quad].quad = quad;
 		minigameArray[quad].width = Screen.width*0.5f;
 		minigameArray[quad].height = Screen.height*0.5f;
 		minigameArray[quad].fullScale = 0.5f;
-		minigameArray[quad].arrivalTime = Time.time + Random.Range(1, 5);	//Testing
+		minigameArray[quad].arrivalTime = Time.time + 5;//Random.Range(1, 5);	//Testing
 	}
 
 	private void GameFail()
