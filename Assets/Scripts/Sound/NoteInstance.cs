@@ -2,7 +2,7 @@
 using System.Collections;
 
 [System.Serializable]
-public class NoteInstance : MonoBehaviour {
+public class NoteInstance{
 
 	public NoteInstance(int l, float t)  {
 		length = l;

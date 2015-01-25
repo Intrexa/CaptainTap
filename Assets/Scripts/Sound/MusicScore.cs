@@ -159,9 +159,9 @@ public class MusicScore : MonoBehaviour {
 				addPhrase ();
 			}
 		}
-		currentAssignIndex++;
-		Debug.Log ("!!!!!!!!" + theScore [currentAssignIndex].ToString() + " !!!!! " + beatTime (currentAssignIndex));
+		//Debug.Log ("!!!!!!!!" + theScore [currentAssignIndex].ToString() + " !!!!! " + beatTime (currentAssignIndex));
 		NoteInstance note = new NoteInstance (theScore [currentAssignIndex], beatTime (currentAssignIndex));
+		currentAssignIndex++;
 		return note;
 	}
 }
