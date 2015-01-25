@@ -124,7 +124,7 @@ public class Minigame : MonoBehaviour {
 
 	public void GameFail()
 	{
-		//music_score.newAudioSource ("beat", sound_library.getNote (duration, false), false, Time.time);
+		music_score.newAudioSource ("beat", sound_library.badNote(duration), false, Time.time);
 		gamePanel.Lives--;
 		gamePanel.DestroyMinigame(quad);
 	}

@@ -39,11 +39,13 @@ public class BRInstrumentNote {
 		path += displayName();
 		good = Resources.Load (path + "Good") as AudioClip;
 		bad = Resources.Load (path + "Bad") as AudioClip;
+		miss = Resources.Load ("Sound/Miss/" + displayName () + "Miss") as AudioClip;
 	}
 
 	public int duration;
 	public AudioClip good;
 	public AudioClip bad;
+	public AudioClip miss;
 
 	public string displayName() {
 		switch (duration) {
@@ -96,7 +98,8 @@ public class SoundLibrary : MonoBehaviour {
 	}
 
 	public AudioClip badNote(int duration) {
-		return getNote(duration, false);
+		BRInstrumentNote newNote = new BRInstrumentNote (duration, "Sound/Miss/");
+		return newNote.miss;
 	}
 
 	// Update is called once per frame
