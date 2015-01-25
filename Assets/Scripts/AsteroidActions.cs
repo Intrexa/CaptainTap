@@ -58,8 +58,9 @@ public class AsteroidActions : MonoBehaviour {
 	}
 
 	public void TappedTest() {
-		if (Mathf.Abs (Time.time - endtime) < 1 + minigame.gamePanel.perfectThreshold) {
-			minigame.GameSuccess(true);
+		if (endtime - Time.time < 2.0f) {
+			Hit ();
+
 		} else {
 			minigame.GameSuccess(false);
 		}

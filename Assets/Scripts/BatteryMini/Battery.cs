@@ -6,10 +6,17 @@ namespace _Battery{
 
 		private float speed = 3f;
 
-		private Vector3 curPos;
-		public Vector3 midPos;
-		public Vector3 endPos;
-		private BatteryStep curStep = BatteryStep.idle;
+		public Vector3 wall1Pos;
+		public Vector3 wall1Size;
+		public Vector3 wall2Pos;
+		public Vector3 wall2Size;
+		public Vector3 wall3Pos;
+		public Vector3 wall3Size;
+		public Vector3 wall4Pos;
+		public Vector3 wall4Size;
+		public Vector3 wall5Pos;
+		public Vector3 wall5Size;
+		private BatteryStep curStep = BatteryStep.Wall1;
 		public TouchPattern touchPattern;
 		// Use this for initialization
 		void Start () {
@@ -24,15 +31,13 @@ namespace _Battery{
 
 		private void handleTouch(TouchType touchType)
 		{
-			if (curStep == BatteryStep.start && touchType == TouchType.leftSwipeAction && touchPattern == TouchPattern.swipe_swipe) {
+			if (curStep == BatteryStep.Wall1 && touchType == TouchType.leftSwipeAction) {
 						GameObject.Find ("BatteryScene").GetComponent<BatteryScene> ().handleGesture (Performance.perfect);
-				} else if (curStep == BatteryStep.moveMid && touchType == TouchType.downSwipeAction && touchPattern == TouchPattern.swipe_swipe
-						&& transform.position == midPos) {
+				} else if (curStep == BatteryStep.Wall2 && touchType == TouchType.tapAction) {
 						GameObject.Find ("BatteryScene").GetComponent<BatteryScene> ().handleGesture (Performance.perfect);
-				} else if (curStep == BatteryStep.start && touchType == TouchType.tapAction && touchPattern == TouchPattern.touch_swipe) {
-						GameObject.Find ("BatteryScene").GetComponent<BatteryScene> ().handleGesture (Performance.perfect);
-				} else if (curStep == BatteryStep.moveMid && touchType == TouchType.rightSwipeAction && touchPattern == TouchPattern.touch_swipe
-						&& transform.position == midPos) {
+			} else if (curStep == BatteryStep.Wall3 && touchType == TouchType.tapAction) {
+						// No ActionGameObject.Find ("BatteryScene").GetComponent<BatteryScene> ().handleGesture (Performance.perfect);
+			} else if (curStep == BatteryStep.Wall4 && touchType == TouchType.upSwipeAction) {
 						GameObject.Find ("BatteryScene").GetComponent<BatteryScene> ().handleGesture (Performance.perfect);
 				} else {
 						GameObject.Find ("BatteryScene").GetComponent<BatteryScene> ().handleGesture (Performance.miss);
@@ -47,29 +52,31 @@ namespace _Battery{
 		public bool advanceStep()
 		{
 			switch (curStep) {
-			case BatteryStep.idle:
-				curStep = BatteryStep.start;
+			case BatteryStep.Wall1:
+				transform.position = wall2Pos;
+				transform.localScale = wall2Size;
+				curStep = BatteryStep.Wall2;
 				return true;
 				break;
-			case BatteryStep.start:
-				curStep = BatteryStep.moveMid;
+			case BatteryStep.Wall2:
+				transform.position = wall3Pos;
+				transform.localScale = wall3Size;
+				curStep = BatteryStep.Wall3;
 				return true;
 				break;
-			case BatteryStep.moveMid:
-				if (transform.position == midPos){
-					curStep = BatteryStep.moveEnd;
-					return true;
-				}
-				return false;
+			case BatteryStep.Wall3:
+				transform.position = wall4Pos;
+				transform.localScale = wall4Size;
+				curStep = BatteryStep.Wall4;
+				return true;
 				break;
-			case BatteryStep.moveEnd:
-				if (transform.position == endPos){
-					curStep = BatteryStep.end;
-					return true;
-				}
-				return false;
+			case BatteryStep.Wall4:
+				transform.position = wall5Pos;
+				transform.localScale = wall5Size;
+				curStep = BatteryStep.Wall5;
+				return true;
 				break;
-			case BatteryStep.end:
+			case BatteryStep.Wall5:
 				destroy();
 				return true;
 				break;
@@ -79,27 +86,6 @@ namespace _Battery{
 
 		// Update is called once per frame
 		void Update() {
-
-		switch (curStep) {
-			case BatteryStep.start:
-				//curStep = BatteryStep.moveMid;
-				break;
-			case BatteryStep.moveMid:
-				transform.position = Vector3.MoveTowards(transform.position, midPos, speed * Time.deltaTime);
-				if (transform.position == midPos){
-					//curStep = BatteryStep.moveEnd;
-				}
-				break;
-			case BatteryStep.moveEnd:
-				transform.position = Vector3.MoveTowards(transform.position, endPos, speed * Time.deltaTime);
-				if (transform.position == endPos){
-					//curStep = BatteryStep.end;
-				}
-				break;
-			case BatteryStep.end:
-				destroy();
-				break;
-				}
 
 			 
 		}
