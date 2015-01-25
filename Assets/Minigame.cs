@@ -38,7 +38,7 @@ public class Minigame : MonoBehaviour {
 
 		GenerateHints();
 
-		transform.FindChild("Border").renderer.material = gamePanel.borderTextures[quad];
+		//transform.FindChild("Border").renderer.material = gamePanel.borderTextures[quad]; //legacy code I need to integrate
 	}
 
 
