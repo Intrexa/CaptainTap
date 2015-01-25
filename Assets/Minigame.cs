@@ -23,9 +23,14 @@ public class Minigame : MonoBehaviour {
 	private Vector3 startPosition;
 	public GamePanel gamePanel;
 
+	MusicScore music_score;
+	SoundLibrary sound_library;
+
 	// Use this for initialization
 	void Start () {
 		gamePanel = transform.parent.GetComponent<GamePanel>();
+		music_score = GameObject.Find ("GamePanel").GetComponent<MusicScore> ();
+		sound_library = GameObject.Find ("GamePanel").GetComponent<SoundLibrary> ();
 		rhythm = new int[]{1, 0, 1, 0};
 		startPosition = transform.position;
 		totalTime = arrivalTime - Time.time;
@@ -117,6 +122,7 @@ public class Minigame : MonoBehaviour {
 
 	public void GameFail()
 	{
+		//music_score.newAudioSource ("beat", sound_library.getNote (duration, false), false, Time.time);
 		gamePanel.Lives--;
 		gamePanel.DestroyMinigame(quad);
 	}
@@ -126,6 +132,8 @@ public class Minigame : MonoBehaviour {
 	public void GameSuccess(bool perfect)
 	{
 		//Add Score
+		Debug.Log (sound_library);
+		music_score.newAudioSource ("beat", sound_library.getNote (duration, true), false, Time.time);
 		Debug.Log("Minigame Success");
 		gamePanel.DestroyMinigame(quad);
 	}
