@@ -5,10 +5,12 @@ namespace _Battery{
 public class BatteryScene : MonoBehaviour {
 
  
-	private SceneStep currentStep = SceneStep.idle;
-		public Battery oldBattery;
+	private SceneStep currentStep = SceneStep.Wall1;
 		public Battery newBattery;
-	
+		public Material Wall2;
+		public Material Wall3;
+		public Material Wall4;
+		public Material Wall5;
 
 
 	public Transform foreground, background;
@@ -27,7 +29,6 @@ public class BatteryScene : MonoBehaviour {
 			GetComponent<SwipeHandler>().DownSwipeAction += handleGesture;
 			GetComponent<SwipeHandler>().LeftSwipeAction += handleGesture;
 			GetComponent<SwipeHandler>().RightSwipeAction += handleGesture;
-			handleGesture(Performance.perfect);
 			//foreground.position = new Vector3(foreground.position.x,foreground.position.y,Camera.main.nearClipPlane);
 		
 		if (background)
@@ -35,7 +36,7 @@ public class BatteryScene : MonoBehaviour {
 	}
 	private void handleGesture()
 		{
-			handleGesture(Performance.miss);
+			handleGesture(Performance.perfect);
 		}
 
 		/// <summary>
@@ -54,41 +55,38 @@ public class BatteryScene : MonoBehaviour {
 				return Performance.miss;
 						}
 
-			Debug.Log (currentStep);
+			//Debug.Log (currentStep);
 		//TODO: Check time vs when we should have hit
-		switch (currentStep) {
-		case SceneStep.idle:
-				oldBattery.advanceStep();
-				currentStep = SceneStep.start;
+			newBattery.advanceStep();
+			switch (currentStep) {
+			case SceneStep.Wall1:
+				renderer.material = Wall2;
+				currentStep = SceneStep.Wall2;
 				return result;
-			break;
-		case SceneStep.start:
-				oldBattery.advanceStep();
-				currentStep = SceneStep.removeOld;
+				break;
+			case SceneStep.Wall2:
+				renderer.material = Wall3;
+				currentStep = SceneStep.Wall3;
 				return result;
-			break;
-		case SceneStep.removeOld:
-				if(oldBattery.advanceStep()){
-					currentStep = SceneStep.grabNew;
-					newBattery.advanceStep(); //advance from idle to start
-				}
+				break;
+			case SceneStep.Wall3:
+				renderer.material = Wall4;
+				currentStep = SceneStep.Wall4;
 				return result;
-			break;
-		case SceneStep.grabNew:
-				newBattery.advanceStep(); //actually start
-					currentStep = SceneStep.insertNew;
+				break;
+			case SceneStep.Wall4:
+				renderer.material = Wall5;
+				currentStep = SceneStep.Wall5;
 				return result;
-			break;
-		case SceneStep.insertNew:
-				if(newBattery.advanceStep()){
-					currentStep = SceneStep.end;
-				}
+				break;
+			case SceneStep.Wall5:
+				//Finish this scene
 				return result;
-			break;
-		case SceneStep.end:
-				return result;
-			break;
-		}
+				break;
+			default:
+			
+				break;
+			}
 			return result;
 	}
 	
