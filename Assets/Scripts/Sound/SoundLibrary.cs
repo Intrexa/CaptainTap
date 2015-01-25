@@ -50,7 +50,7 @@ public class BRInstrumentNote {
 	public string displayName() {
 		switch (duration) {
 			case 2:
-				return "Eigth";
+				return "Eighth";
 				break;
 			case 4:
 				return "Quarter";

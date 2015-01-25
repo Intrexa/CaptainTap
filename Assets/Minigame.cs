@@ -124,12 +124,16 @@ public class Minigame : MonoBehaviour {
 
 	public void GameFail()
 	{
+		Debug.Log (sound_library.badNote (duration));
 		music_score.newAudioSource ("beat", sound_library.badNote(duration), false, Time.time);
 		gamePanel.Lives--;
 		gamePanel.DestroyMinigame(quad);
 	}
 
-
+	public void GameDestroy()
+	{
+		gamePanel.DestroyMinigame (quad);
+	}
 
 	public void GameSuccess(bool perfect)
 	{
@@ -141,6 +145,5 @@ public class Minigame : MonoBehaviour {
 		Debug.Log (sound_library);
 		music_score.newAudioSource ("beat", sound_library.getNote (duration, true), false, Time.time);
 		Debug.Log("Minigame Success");
-		gamePanel.DestroyMinigame(quad);
 	}
 }

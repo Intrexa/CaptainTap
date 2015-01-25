@@ -73,8 +73,10 @@ public class AsteroidActions : MonoBehaviour {
 		transform.localScale = Vector3.one;
 	}
 
+
 	void Tapped() {
 		if (Mathf.Abs (Time.time - endtime) < 1) {
+
 			minigame.GameSuccess(true);
 
 		} else {
