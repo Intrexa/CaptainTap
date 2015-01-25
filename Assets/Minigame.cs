@@ -1,13 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
-
 public class Minigame : MonoBehaviour {
-
 	public int quad;
 	public float width, height;
-
 	public Transform foreground, background;
 	public float arrivalTime;
+
+
 
 	public float fullScale;
 
@@ -30,15 +29,17 @@ public class Minigame : MonoBehaviour {
 		startPosition = transform.position;
 		totalTime = arrivalTime - Time.time;
 
+
+
 		//Move foreground and background
 		if (foreground)
 			foreground.position = new Vector3(foreground.position.x,foreground.position.y,Camera.main.nearClipPlane);
-
 		if (background)
 			background.localPosition = new Vector3(background.localPosition.x,background.localPosition.y,500);
 
 		GenerateHints();
 	}
+
 
 	public void GenerateHints()
 	{
@@ -78,6 +79,7 @@ public class Minigame : MonoBehaviour {
 		}	
 	}
 	
+
 	// Update is called once per frame
 	void Update () {
 		float timeLeft = arrivalTime - Time.time;
@@ -94,12 +96,15 @@ public class Minigame : MonoBehaviour {
 		    	hintObject.transform.localPosition = hintSource.transform.localPosition;
 		}
 
+
+
 		//If the has elapsed fail
 		if(timeLeft + gamePanel.goodThreshold <= 0)
 		{
 			GameFail();
 			return;
 		}
+
 
 		//Position based on time remaining and spawn distance
 		transform.position = Vector3.Lerp(startPosition + new Vector3(0,0,totalTime*gamePanel.spawnDistance), startPosition,Mathf.Pow(1-timeLeft/totalTime,gamePanel.speed)); //-(gamePanel.speed/2)+(1-timeLeft/totalTime)*gamePanel.speed
@@ -108,11 +113,14 @@ public class Minigame : MonoBehaviour {
 
 	}
 
+
 	public void GameFail()
 	{
 		gamePanel.Lives--;
 		gamePanel.DestroyMinigame(quad);
 	}
+
+
 
 	public void GameSuccess(bool perfect)
 	{
@@ -120,5 +128,7 @@ public class Minigame : MonoBehaviour {
 		Debug.Log("Minigame Success");
 		gamePanel.DestroyMinigame(quad);
 	}
+
+
 
 }
