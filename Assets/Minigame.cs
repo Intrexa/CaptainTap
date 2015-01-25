@@ -5,7 +5,7 @@ public class Minigame : MonoBehaviour {
 	public float width, height;
 	public Transform foreground, background;
 	public float arrivalTime;
-
+	public int duration;
 
 
 	public float fullScale;
@@ -22,6 +22,7 @@ public class Minigame : MonoBehaviour {
 	private float totalTime;
 	private Vector3 startPosition;
 	public GamePanel gamePanel;
+
 	// Use this for initialization
 	void Start () {
 		gamePanel = transform.parent.GetComponent<GamePanel>();

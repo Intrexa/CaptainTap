@@ -12,6 +12,8 @@ public class GamePanel : MonoBehaviour {
 	public float goodThreshold = 0.5f;
 	public float perfectThreshold = 0.2f;
 
+	public MusicScore music_score;
+
 	private int lives;
 	public int Lives
     {
@@ -30,6 +32,8 @@ public class GamePanel : MonoBehaviour {
 	private Vector3[] miniGamePositions;
 	// Use this for initialization
 	void Start () {
+
+		music_score = GetComponent<MusicScore> ();
 
 		//Find Centre points of Quadrants;
 		miniGamePositions = new Vector3[4];
@@ -70,7 +74,10 @@ public class GamePanel : MonoBehaviour {
 		minigameArray[quad].width = Screen.width*0.5f;
 		minigameArray[quad].height = Screen.height*0.5f;
 		minigameArray[quad].fullScale = 0.5f;
-		minigameArray[quad].arrivalTime = Time.time + 5;//Random.Range(1, 5);	//Testing
+		NoteInstance note = music_score.nextNote ();
+
+		minigameArray[quad].arrivalTime = note.time;//Random.Range(1, 5);	//Testing
+		minigameArray [quad].duration = note.length;
 	}
 
 	private void GameFail()

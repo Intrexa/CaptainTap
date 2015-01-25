@@ -38,9 +38,38 @@ public class MusicScore : MonoBehaviour {
 		beatLen = 3/16f;
 
 		theScore = new List<int> ();
+		//activate = true;
+
+		string[,] conf = CSVReader.SplitCsvGrid(csv.text);
+		Comp_1_Patterns = new List<int[]>();
+		for (int i=1; i < 6; i++) {
+			Comp_1_Patterns.Add(IntArrayFromTextRow(conf, i));
+		}
+		
+		Comp_2_Patterns = new List<int[]>();
+		for (int i=7; i < 16; i++) {
+			Comp_2_Patterns.Add(IntArrayFromTextRow(conf, i));
+		}
+		
+		Comp_3_Patterns = new List<int[]>();
+		for (int i=17; i < 27; i++) {
+			Comp_3_Patterns.Add(IntArrayFromTextRow(conf, i));
+		}
+		string disp = "";
+		for (int i=0; i<16; i++) {
+			disp += Comp_3_Patterns[5][i].ToString () + " ";
+		}
+		Debug.Log (disp);
+		Debug.Log (Comp_1_Patterns);
+		Debug.Log (Comp_2_Patterns);
+		Debug.Log (Comp_3_Patterns);
+		EditorUtility.SetDirty(transform);
+		CSVReader.DebugOutputGrid(CSVReader.SplitCsvGrid(csv.text));
+
 		addPhrase();
+
 		initialized = true;
-		activate = true;
+
 	}
 
 	public float beatTime(int index) {
@@ -68,41 +97,11 @@ public class MusicScore : MonoBehaviour {
 		}
 		Debug.Log (patternSet);
 		Debug.Log (Comp_1_Patterns);
-		//theScore.AddRange (patternSet [UnityEngine.Random.Range (0, patternSet.Count() - 1)]);
+		theScore.AddRange (patternSet [UnityEngine.Random.Range (0, patternSet.Count() - 1)]);
 	}
 
 	// Update is called once per frame
 	void Update () {
-		if (activate) {
-			activate = false;
-
-			string[,] conf = CSVReader.SplitCsvGrid(csv.text);
-			Comp_1_Patterns = new List<int[]>();
-			for (int i=1; i < 6; i++) {
-				Comp_1_Patterns.Add(IntArrayFromTextRow(conf, i));
-			}
-
-			Comp_2_Patterns = new List<int[]>();
-			for (int i=7; i < 16; i++) {
-				Comp_2_Patterns.Add(IntArrayFromTextRow(conf, i));
-			}
-
-			Comp_3_Patterns = new List<int[]>();
-			for (int i=17; i < 27; i++) {
-				Comp_3_Patterns.Add(IntArrayFromTextRow(conf, i));
-			}
-			string disp = "";
-			for (int i=0; i<16; i++) {
-				disp += Comp_3_Patterns[5][i].ToString () + " ";
-			}
-			Debug.Log (disp);
-			Debug.Log (Comp_1_Patterns);
-			Debug.Log (Comp_2_Patterns);
-			Debug.Log (Comp_3_Patterns);
-			EditorUtility.SetDirty(transform);
-			CSVReader.DebugOutputGrid(CSVReader.SplitCsvGrid(csv.text));
-
-		}
 		if (initialized) {
 
 			int beatDiff = 1;
@@ -160,46 +159,9 @@ public class MusicScore : MonoBehaviour {
 				addPhrase ();
 			}
 		}
-		
+		currentAssignIndex++;
+		Debug.Log ("!!!!!!!!" + theScore [currentAssignIndex].ToString() + " !!!!! " + beatTime (currentAssignIndex));
 		NoteInstance note = new NoteInstance (theScore [currentAssignIndex], beatTime (currentAssignIndex));
 		return note;
 	}
 }
-
-[CustomEditor(typeof(MusicScore))]
-class MusicScoreEditor :  Editor {
-	public override void OnInspectorGUI()
-	{
-		if(GUILayout.Button("Build CSV"))
-		{
-			MusicScore musicScore = (MusicScore) target;
-			string[,] conf = CSVReader.SplitCsvGrid(musicScore.csv.text);
-			musicScore.Comp_1_Patterns = new List<int[]>();
-			for (int i=1; i < 6; i++) {
-				musicScore.Comp_1_Patterns.Add(musicScore.IntArrayFromTextRow(conf, i));
-			}
-			
-			musicScore.Comp_2_Patterns = new List<int[]>();
-			for (int i=7; i < 16; i++) {
-				musicScore.Comp_2_Patterns.Add(musicScore.IntArrayFromTextRow(conf, i));
-			}
-			
-			musicScore.Comp_3_Patterns = new List<int[]>();
-			for (int i=17; i < 27; i++) {
-				musicScore.Comp_3_Patterns.Add(musicScore.IntArrayFromTextRow(conf, i));
-			}
-			string disp = "";
-			for (int i=0; i<16; i++) {
-				disp += musicScore.Comp_3_Patterns[5][i].ToString () + " ";
-			}
-			Debug.Log (disp);
-			Debug.Log (musicScore.Comp_1_Patterns);
-			Debug.Log (musicScore.Comp_2_Patterns);
-			Debug.Log (musicScore.Comp_3_Patterns);
-			EditorUtility.SetDirty(musicScore.transform);
-		}
-
-		base.OnInspectorGUI ();
-	}
-}
-
