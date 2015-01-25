@@ -7,7 +7,7 @@ public class Minigame : MonoBehaviour {
 	public float width, height;
 
 	public Transform foreground, background;
-	public float arriveTime;
+	public float arrivalTime;
 
 	public float fullScale;
 	private int[] rhythm;
@@ -19,7 +19,7 @@ public class Minigame : MonoBehaviour {
 		gamePanel = transform.parent.GetComponent<GamePanel>();
 		rhythm = new int[]{1, 0, 1, 0};
 		startPosition = transform.position;
-		totalTime = arriveTime - Time.time;
+		totalTime = arrivalTime - Time.time;
 
 		//Move foreground and background
 		if (foreground)
@@ -32,7 +32,7 @@ public class Minigame : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		float timeLeft = arriveTime - Time.time;
+		float timeLeft = arrivalTime - Time.time;
 
 		//If the has elapsed fail
 		if(timeLeft + gamePanel.goodThreshold <= 0)
@@ -56,6 +56,7 @@ public class Minigame : MonoBehaviour {
 	public void GameSuccess(bool perfect)
 	{
 		//Add Score
+		Debug.Log("Minigame Success");
 		gamePanel.DestroyMinigame(quad);
 	}
 

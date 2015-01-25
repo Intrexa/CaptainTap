@@ -4,7 +4,7 @@ using System.Collections;
 public class GamePanel : MonoBehaviour {
 
 	public Minigame[] minigameArray;
-	public GameObject tempMiniGame;
+	public GameObject[] tempMiniGameList;
 	public float panelZDistance;
 
 	public float spawnDistance;
@@ -60,8 +60,9 @@ public class GamePanel : MonoBehaviour {
 
 	private void createMinigame(int quad)
 	{	
+		GameObject gameToCreate = tempMiniGameList[Random.Range(0, tempMiniGameList.Length)];
 		//GameObject newGame = //Score.GetNewMiniGame();
-		GameObject newGO = Instantiate(tempMiniGame, miniGamePositions[quad],tempMiniGame.transform.rotation) as GameObject;
+		GameObject newGO = Instantiate(gameToCreate, miniGamePositions[quad],gameToCreate.transform.rotation) as GameObject;
 		newGO.transform.localScale = new Vector3(0.5f,0.5f,0.5f);
 		//newGO.renderer.material.color = new Color(Random.value,Random.value,Random.value);
 		newGO.transform.parent = transform;
@@ -70,7 +71,7 @@ public class GamePanel : MonoBehaviour {
 		minigameArray[quad].width = Screen.width*0.5f;
 		minigameArray[quad].height = Screen.height*0.5f;
 		minigameArray[quad].fullScale = 0.5f;
-		minigameArray[quad].arriveTime = Time.time + Random.Range(5, 10);	//Testing
+		minigameArray[quad].arrivalTime = Time.time + Random.Range(5, 10);	//Testing
 	}
 
 	private void GameFail()

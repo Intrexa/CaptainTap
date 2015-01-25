@@ -15,7 +15,7 @@ public class AsteroidController : MonoBehaviour {
 		AsteroidPrefab = Resources.Load ("Prefabs/Asteroid");
 		startPos = transform.position;
 		noteIndex = 0;
-		endTimes = new float[] {2,5,10,15};
+		endTimes = new float[] {transform.parent.GetComponent<Minigame>().arrivalTime};//new float[] {2,5,10,15};
 		starttime = endTimes [noteIndex] - 2;
 		//nexttime = Time.time;
 		currentTime = Time.time;
@@ -41,7 +41,9 @@ public class AsteroidController : MonoBehaviour {
 	{
 
 		GameObject asteroid = GameObject.Instantiate (AsteroidPrefab) as GameObject;
-		asteroid.transform.position = startPos;
+		asteroid.transform.localPosition = startPos;
+		asteroid.transform.parent = transform.parent;
+		asteroid.transform.localScale = Vector3.one * 0.1f;
 		newAsteroid = asteroid.GetComponent<AsteroidActions> ();
 		newAsteroid.setEndTime(endtime);
 
