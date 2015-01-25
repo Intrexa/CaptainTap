@@ -75,7 +75,7 @@ public class AsteroidActions : MonoBehaviour {
 
 	void Tapped() {
 		if (Mathf.Abs (Time.time - endtime) < 1) {
-			Hit ();
+			minigame.GameSuccess(true);
 
 		} else {
 			minigame.GameSuccess(false);
