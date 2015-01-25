@@ -31,7 +31,7 @@ public class Minigame : MonoBehaviour {
 				//Spawn(spawnPosition, transform.position.z + endPosition, rhythmIndex);
 			}
 		}
-		Debug.Log("test");
+//		Debug.Log("test");
 		//Move foreground and background
 		if (foreground)
 			foreground.position = new Vector3(foreground.position.x,foreground.position.y,Camera.main.nearClipPlane);

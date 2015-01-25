@@ -5,7 +5,7 @@ namespace _Battery{
 public class BatteryScene : MonoBehaviour {
 
  
-	private SceneStep currentStep = SceneStep.start;
+	private SceneStep currentStep = SceneStep.idle;
 		public Battery oldBattery;
 		public Battery newBattery;
 	
@@ -27,6 +27,7 @@ public class BatteryScene : MonoBehaviour {
 			GetComponent<SwipeHandler>().DownSwipeAction += handleGesture;
 			GetComponent<SwipeHandler>().LeftSwipeAction += handleGesture;
 			GetComponent<SwipeHandler>().RightSwipeAction += handleGesture;
+			handleGesture(Performance.perfect);
 			//foreground.position = new Vector3(foreground.position.x,foreground.position.y,Camera.main.nearClipPlane);
 		
 		if (background)
@@ -52,8 +53,15 @@ public class BatteryScene : MonoBehaviour {
 				//call failure code
 				return Performance.miss;
 						}
+
+			Debug.Log (currentStep);
 		//TODO: Check time vs when we should have hit
 		switch (currentStep) {
+		case SceneStep.idle:
+				oldBattery.advanceStep();
+				currentStep = SceneStep.start;
+				return result;
+			break;
 		case SceneStep.start:
 				oldBattery.advanceStep();
 				currentStep = SceneStep.removeOld;
@@ -62,11 +70,12 @@ public class BatteryScene : MonoBehaviour {
 		case SceneStep.removeOld:
 				if(oldBattery.advanceStep()){
 					currentStep = SceneStep.grabNew;
+					newBattery.advanceStep(); //advance from idle to start
 				}
 				return result;
 			break;
 		case SceneStep.grabNew:
-				newBattery.advanceStep();
+				newBattery.advanceStep(); //actually start
 					currentStep = SceneStep.insertNew;
 				return result;
 			break;

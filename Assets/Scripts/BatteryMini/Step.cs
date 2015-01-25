@@ -3,7 +3,8 @@ namespace _Battery
 {
 		public enum SceneStep
 		{
-		start 
+		idle
+		,start 
 		,removeOld 
 		,grabNew 
 		,insertNew 
@@ -12,7 +13,8 @@ namespace _Battery
 
 	public enum BatteryStep
 	{
-		start 
+		idle
+		,start 
 		,moveMid 
 		,moveEnd 
 		,end 

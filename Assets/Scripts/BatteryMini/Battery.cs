@@ -9,7 +9,7 @@ namespace _Battery{
 		private Vector3 curPos;
 		public Vector3 midPos;
 		public Vector3 endPos;
-		private BatteryStep curStep = BatteryStep.start;
+		private BatteryStep curStep = BatteryStep.idle;
 		public TouchPattern touchPattern;
 		// Use this for initialization
 		void Start () {
@@ -31,11 +31,11 @@ namespace _Battery{
 						GameObject.Find ("BatteryScene").GetComponent<BatteryScene> ().handleGesture (Performance.perfect);
 				} else if (curStep == BatteryStep.start && touchType == TouchType.tapAction && touchPattern == TouchPattern.touch_swipe) {
 						GameObject.Find ("BatteryScene").GetComponent<BatteryScene> ().handleGesture (Performance.perfect);
-				} else if (curStep == BatteryStep.moveMid && touchType == TouchType.downSwipeAction && touchPattern == TouchPattern.touch_swipe
+				} else if (curStep == BatteryStep.moveMid && touchType == TouchType.rightSwipeAction && touchPattern == TouchPattern.touch_swipe
 						&& transform.position == midPos) {
 						GameObject.Find ("BatteryScene").GetComponent<BatteryScene> ().handleGesture (Performance.perfect);
 				} else {
-						GameObject.Find ("BatteryScene").GetComponent<BatteryScene> ().handleGesture (Performance.perfect);
+						GameObject.Find ("BatteryScene").GetComponent<BatteryScene> ().handleGesture (Performance.miss);
 				}
 
 		}
@@ -47,6 +47,10 @@ namespace _Battery{
 		public bool advanceStep()
 		{
 			switch (curStep) {
+			case BatteryStep.idle:
+				curStep = BatteryStep.start;
+				return true;
+				break;
 			case BatteryStep.start:
 				curStep = BatteryStep.moveMid;
 				return true;
