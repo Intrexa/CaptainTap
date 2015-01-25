@@ -19,6 +19,8 @@ public class GamePanel : MonoBehaviour {
 	private Text scoreLabel; 
 	[SerializeField]
 	private int lives = 3;
+	public MusicScore music_score;
+
 	public int Lives
     {
         get
@@ -58,10 +60,14 @@ public class GamePanel : MonoBehaviour {
     }
 
 	private Vector3[] miniGamePositions;
+	public bool started;
+
 	// Use this for initialization
 	void Start () {
 
 		scoreLabel = transform.FindChild("Canvas").FindChild("Score").GetComponent<Text>() as Text;
+		music_score = GetComponent<MusicScore> ();
+
 		//Find Centre points of Quadrants;
 		miniGamePositions = new Vector3[4];
 		miniGamePositions[0] = Camera.main.ScreenToWorldPoint(new Vector3((Screen.width*0.25f), (Screen.height*0.25f), Camera.main.nearClipPlane+panelZDistance));//new Vector3((Screen.width*0.25f),transform.y,(Screen.height*0.25f));
@@ -69,17 +75,17 @@ public class GamePanel : MonoBehaviour {
 		miniGamePositions[2] = Camera.main.ScreenToWorldPoint(new Vector3((Screen.width*0.25f)*3, (Screen.height*0.25f)*3, Camera.main.nearClipPlane+panelZDistance));//new Vector3((Screen.width*0.25f),transform.y,(Screen.height*0.25f));
 		miniGamePositions[3] = Camera.main.ScreenToWorldPoint(new Vector3((Screen.width*0.25f), (Screen.height*0.25f)*3, Camera.main.nearClipPlane+panelZDistance));//new Vector3((Screen.width*0.25f),transform.y,(Screen.height*0.25f));
 
-		//Create Minigames
-		minigameArray = new Minigame[4];
-		for(int i = 0; i < 4; i++){
-			createMinigame(i);
-		}
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	foreach(Vector3 v in miniGamePositions)
-			Debug.DrawLine(v, v+Vector3.forward);
+		if (music_score.initialized && !started) {
+			started = true;
+			minigameArray = new Minigame[4];
+			for(int i = 0; i < 4; i++){
+				createMinigame(i);
+			}
+		}
 	}
 
 	public void DestroyMinigame(int quad)
@@ -101,7 +107,10 @@ public class GamePanel : MonoBehaviour {
 		minigameArray[quad].width = Screen.width*0.5f;
 		minigameArray[quad].height = Screen.height*0.5f;
 		minigameArray[quad].fullScale = 0.5f;
-		minigameArray[quad].arrivalTime = Time.time + Random.Range(5, 10);	//Testing
+		NoteInstance note = music_score.nextNote ();
+
+		minigameArray[quad].arrivalTime = note.time;//Random.Range(1, 5);	//Testing
+		minigameArray [quad].duration = note.length;
 	}
 
 	private void GameFail()
