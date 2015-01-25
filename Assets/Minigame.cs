@@ -6,6 +6,10 @@ public class Minigame : MonoBehaviour {
 	public Transform foreground, background;
 	public float arrivalTime;
 	public int duration;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1a407a715ee38ec23058b8e1df6f6aec0621fe5b
 
 	public float fullScale;
 
@@ -124,8 +128,12 @@ public class Minigame : MonoBehaviour {
 
 	public void GameFail()
 	{
+<<<<<<< HEAD
 		Debug.Log (sound_library.badNote (duration));
 		music_score.newAudioSource ("beat", sound_library.badNote(duration), false, Time.time);
+=======
+		//music_score.newAudioSource ("beat", sound_library.getNote (duration, false), false, Time.time);
+>>>>>>> 1a407a715ee38ec23058b8e1df6f6aec0621fe5b
 		gamePanel.Lives--;
 		gamePanel.DestroyMinigame(quad);
 	}
@@ -138,10 +146,13 @@ public class Minigame : MonoBehaviour {
 	public void GameSuccess(bool perfect)
 	{
 		//Add Score
+<<<<<<< HEAD
 		if(perfect)
 			gamePanel.Score += 20;
 		else
 			gamePanel.Score += 10;
+=======
+>>>>>>> 1a407a715ee38ec23058b8e1df6f6aec0621fe5b
 		Debug.Log (sound_library);
 		music_score.newAudioSource ("beat", sound_library.getNote (duration, true), false, Time.time);
 		Debug.Log("Minigame Success");
