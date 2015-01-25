@@ -12,6 +12,8 @@ public class GamePanel : MonoBehaviour {
 	public float goodThreshold = 0.5f;
 	public float perfectThreshold = 0.2f;
 
+	public Material[] borderTextures;
+
 	private int lives;
 	public int Lives
     {

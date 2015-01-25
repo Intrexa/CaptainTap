@@ -6,11 +6,12 @@ public class Minigame : MonoBehaviour {
 	public Transform foreground, background;
 	public float arrivalTime;
 
-
-
 	public float fullScale;
 
 	public GameObject hintObject;
+
+	
+
 	//Can't be Texture, you need create an Object and later convert in Texture
 	private Object[] hintTexture;
 	 
@@ -29,8 +30,6 @@ public class Minigame : MonoBehaviour {
 		startPosition = transform.position;
 		totalTime = arrivalTime - Time.time;
 
-
-
 		//Move foreground and background
 		if (foreground)
 			foreground.position = new Vector3(foreground.position.x,foreground.position.y,Camera.main.nearClipPlane);
@@ -38,6 +37,8 @@ public class Minigame : MonoBehaviour {
 			background.localPosition = new Vector3(background.localPosition.x,background.localPosition.y,500);
 
 		GenerateHints();
+
+		transform.FindChild("Border").renderer.material = gamePanel.borderTextures[quad];
 	}
 
 
