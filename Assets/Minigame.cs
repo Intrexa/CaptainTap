@@ -7,12 +7,20 @@ public class Minigame : MonoBehaviour {
 	public float width, height;
 
 	public Transform foreground, background;
-	private int[] rhythm;
-	private float endPosition = -12;
+	public float arriveTime;
 
+	public float fullScale;
+	private int[] rhythm;
+	private float totalTime;
+	private Vector3 startPosition;
+	private GamePanel gamePanel;
 	// Use this for initialization
 	void Start () {
-		Debug.Log("test");
+		gamePanel = transform.parent.GetComponent<GamePanel>();
+		rhythm = new int[]{1, 0, 1, 0};
+		startPosition = transform.position;
+		totalTime = arriveTime - Time.time;
+
 		//Move foreground and background
 		if (foreground)
 			foreground.position = new Vector3(foreground.position.x,foreground.position.y,Camera.main.nearClipPlane);
@@ -24,6 +32,29 @@ public class Minigame : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		float timeLeft = arriveTime - Time.time;
+
+		//If the has elapsed fail
+		if(timeLeft + gamePanel.goodThreshold <= 0)
+		{
+			GameFail();
+			return;
+		}
+
+		//Position based on time remaining and spawn distance
+		transform.position = Vector3.Lerp(startPosition + new Vector3(0,0,totalTime*gamePanel.spawnDistance), startPosition,Mathf.Pow(1-timeLeft/totalTime,gamePanel.speed)); //-(gamePanel.speed/2)+(1-timeLeft/totalTime)*gamePanel.speed
+		//Set the scale based on z position
+		transform.localScale = new Vector3(fullScale,fullScale,0) *(Vector3.Distance(startPosition, transform.parent.position)/Vector3.Distance(transform.position, transform.parent.position)) + new Vector3(0,0,fullScale);			
+	}
+
+	public void GameFail()
+	{
+		gamePanel.Lives--;
+		gamePanel.DestroyMinigame(quad);
+	}
+
+	public void GameSuccess(bool perfect)
+	{
 
 	}
 
