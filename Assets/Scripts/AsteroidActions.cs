@@ -63,5 +63,6 @@ public class AsteroidActions : MonoBehaviour {
 		} else {
 			minigame.GameSuccess(false);
 		}
+		minigame.GameDestroy();
 	}
 }

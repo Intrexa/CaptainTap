@@ -10,7 +10,7 @@ public class Minigame : MonoBehaviour {
 
 	public GameObject hintObject;
 
-	
+	public bool isDone;
 
 	//Can't be Texture, you need create an Object and later convert in Texture
 	private Object[] hintTexture;
@@ -83,6 +83,7 @@ public class Minigame : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+
 		float timeLeft = arrivalTime - Time.time;
 
 		if(hintSource && timeLeft <= 0)
@@ -121,7 +122,10 @@ public class Minigame : MonoBehaviour {
 		gamePanel.DestroyMinigame(quad);
 	}
 
-
+	public void GameDestroy()
+	{
+		gamePanel.DestroyMinigame(quad);
+	}
 
 	public void GameSuccess(bool perfect)
 	{
@@ -130,7 +134,7 @@ public class Minigame : MonoBehaviour {
 			gamePanel.Score += 20;
 		else
 			gamePanel.Score += 10;
-		gamePanel.DestroyMinigame(quad);
+		
 	}
 
 
